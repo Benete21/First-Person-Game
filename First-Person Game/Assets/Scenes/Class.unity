@@ -501,10 +501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baaeb446646ea7e47a88e1b100fcbf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  lookSpeed: 0
+  moveSpeed: 5
+  lookSpeed: 0.25
   gravity: -9.81
-  playerCamera: {fileID: 0}
+  jumpHeight: 1
+  playerCamera: {fileID: 376791039}
 --- !u!1 &1885275103
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +567,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1fe2fd1abc39da3469e2b5fdceac1c1b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
