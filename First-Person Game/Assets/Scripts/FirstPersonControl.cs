@@ -1,36 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Presets;
-using UnityEditor.Rendering;
-using UnityEditor.ShaderGraph;
+using UnityEditor.Sprites;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Windows;
-public class FirstPersonControl : MonoBehaviour
+public class FirstPersonControls : MonoBehaviour
 {
-    // Public variables to set movement and look SPEED, and the player camera
+    [Header("MOVEMENT SETTINGS")]
+    [Space(5)]
+    // Public variables to set movement and look speed, and the player camera
     public float moveSpeed; // Speed at which the player moves
     public float lookSpeed; // Sensitivity of the camera movement
     public float gravity = -9.81f; // Gravity value
     public float jumpHeight = 1.0f; // Height of the jump
     public Transform playerCamera; // Reference to the player's camera
-
-    // Private variables to STORE input values and the character controller
+       // Private variables to store input values and the character controller
     private Vector2 moveInput; // Stores the movement input from the player
     private Vector2 lookInput; // Stores the look input from the player
     private float verticalLookRotation = 0f; // Keeps track of vertical camera rotation for clamping
     private Vector3 velocity; // Velocity of the player
-
     private CharacterController characterController; // Reference to the CharacterController component
-    private void Awake() //Use to initialsie references and components as soon as script instance is loaded (Starts Before the Start() Method)
+
+    [Header("SHOOTING SETTINGS")] 
+    [Space(5)]
+    public GameObject projectilePrefab; // Projectile prefab for shooting
+    public Transform firePoint; // Point from which the projectile isfired
+    public float projectileSpeed = 20f; // Speed at which the projectile is fired
+    public float pickUpRange = 3f; // Range within which objects can be picked up
+    private bool holdingGun = false;
+    
+    [Header("PICKING UP SETTINGS")]
+    [Space(5)]
+    public Transform holdPosition; // Position where the picked-up objectwill be held
+    private GameObject heldObject; // Reference to the currently held object
+
+private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
         characterController = GetComponent<CharacterController>();
     }
     private void OnEnable()
     {
-        // Create a new instance of the INPUT ACTIONS
+        // Create a new instance of the input actions
         var playerInput = new Controls();
 
         // Enable the input actions
@@ -38,16 +51,17 @@ public class FirstPersonControl : MonoBehaviour
 
         // Subscribe to the movement input events
         playerInput.Player.Movment.performed += ctx => moveInput = ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
-                                                                                             // ctx is short for context(The keybindings in this instance eg the context for the left joy stick)
-                                                                                             //sets the value of moveInput to the context of the readValue
         playerInput.Player.Movment.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement input is canceled
 
         // Subscribe to the look input events
-        playerInput.Player.LookAround.performed += ctx => lookInput = ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
+        playerInput.Player.LookAround.performed += ctx => lookInput =ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
         playerInput.Player.LookAround.canceled += ctx => lookInput = Vector2.zero; // Reset lookInput when look input is canceled
-
+                  
         // Subscribe to the jump input event
         playerInput.Player.Jump.performed += ctx => Jump(); // Call the Jump method when jump input is performed
+       
+        // Subscribe to the shoot input event
+        playerInput.Player.Shoot.performed += ctx => Shoot(); // Call the Shoot method when shoot input is performed
     }
     private void Update()
     {
@@ -61,7 +75,7 @@ public class FirstPersonControl : MonoBehaviour
         // Create a movement vector based on the input
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
 
-        // Transform direction from local to world space - local space rotation of the game object _ world space referes to the whole worlds perspective (Want the player to move according to the world)
+        // Transform direction from local to world space
         move = transform.TransformDirection(move);
 
         // Move the character controller based on the movement vector and speed
@@ -69,16 +83,16 @@ public class FirstPersonControl : MonoBehaviour
     }
     public void LookAround()
     {
-        // Get horizontal and vertical look inputs and adjust based onsensitivity
+        // Get horizontal and vertical look inputs and adjust based on sensitivity
         float LookX = lookInput.x * lookSpeed;
         float LookY = lookInput.y * lookSpeed;
 
         // Horizontal rotation: Rotate the player object around the y-axis
         transform.Rotate(0, LookX, 0);
 
-        // Vertical rotation: Adjust the vertical look rotation and clampit to prevent flipping
+        // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
         verticalLookRotation -= LookY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f); // Restricting the look up and down to 90 degrees and 90 degrees
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
 
         // Apply the clamped vertical rotation to the player camera
         playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
@@ -89,8 +103,7 @@ public class FirstPersonControl : MonoBehaviour
         {
             velocity.y = -0.5f; // Small value to keep the player grounded
         }
-
-        velocity.y += gravity * Time.deltaTime; // Apply gravity to thevelocity
+        velocity.y += gravity * Time.deltaTime; // Apply gravity to the velocity
         characterController.Move(velocity * Time.deltaTime); // Apply the velocity to the character
     }
     public void Jump()
@@ -101,5 +114,16 @@ public class FirstPersonControl : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
-}
+    public void Shoot()
+    {
+        // Instantiate the projectile at the fire point
+        GameObject projectile = Instantiate(projectilePrefab,firePoint.position, firePoint.rotation);
 
+        // Get the Rigidbody component of the projectile and set its velocity
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = firePoint.forward * projectileSpeed;
+
+        // Destroy the projectile after 3 seconds
+        Destroy(projectile, 3f);
+    }
+}
