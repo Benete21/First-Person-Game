@@ -6,6 +6,7 @@ using UnityEditor.Sprites;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Windows;
+using UnityEngine.Rendering;
 public class FirstPersonControls : MonoBehaviour
 {
     [Header("MOVEMENT SETTINGS")]
@@ -36,6 +37,14 @@ public class FirstPersonControls : MonoBehaviour
     private GameObject heldObject; // Reference to the currently held object
     public float pickUpRange = 3f; // Range within which objects can be picked up
     private bool holdingGun = false;
+
+    [Header("CROUCH SETTINGS")]
+    [Space(5)]
+    public float crouchHeight = 1;      //make short
+    public float standingHeight = 2;    //make normal
+    public float crouchSpeed = 1.5f;    //make slow
+    private bool isCrouching = false;   //whether the player is crouching or not
+
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -65,6 +74,9 @@ public class FirstPersonControls : MonoBehaviour
 
         // Subscribe to the pick-up input event
         playerInput.Player.PickUp.performed += ctx => PickUpObject(); //Call the PickUpObject method when pick-up input is performed
+
+        //Subscribe to the crouch input event
+        playerInput.Player.Crouch.performed += ctx => ToggleCrouch(); //Call the toggleCrouch method when crouch input is perfromed
     }
     private void Update()
     {
@@ -77,8 +89,20 @@ public class FirstPersonControls : MonoBehaviour
     {
         // Create a movement vector based on the input
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+
         // Transform direction from local to world space
         move = transform.TransformDirection(move);
+
+        float currentSpeed;
+        if (isCrouching)
+        {
+            currentSpeed = crouchSpeed;
+        }
+        else
+        {
+            currentSpeed = moveSpeed;
+        }
+
         // Move the character controller based on the movement vector and speed
     characterController.Move(move * moveSpeed * Time.deltaTime);
     }
@@ -170,6 +194,19 @@ public class FirstPersonControls : MonoBehaviour
                 heldObject.transform.parent = holdPosition;
                 holdingGun = true;
             }
+        }
+    }
+    public void ToggleCrouch()
+    {
+        if (isCrouching)
+        {
+            characterController.height = standingHeight;
+            isCrouching = false;
+        }
+        else 
+        {
+            characterController.height = crouchHeight;  
+            isCrouching = true;
         }
     }
 }
