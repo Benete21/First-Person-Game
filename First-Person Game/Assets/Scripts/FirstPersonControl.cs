@@ -45,6 +45,14 @@ public class FirstPersonControls : MonoBehaviour
     public float crouchSpeed = 1.5f;    //make slow
     private bool isCrouching = false;   //whether the player is crouching or not
 
+    [Header("SEARCH SETTINGS")]
+    [Space(5)]
+    public Transform hiddenPosition; // Position where hiddenitem is
+    public GameObject hiddenObject; // Referese to hidden item prefab
+    public float hiddenItemRange = 6f; 
+    private bool isHoldingHidden = false; // asks if the hidden item is held
+    private bool hiddenActive = false;  //asks if thr hidden item is in the scene
+
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -77,6 +85,9 @@ public class FirstPersonControls : MonoBehaviour
 
         //Subscribe to the crouch input event
         playerInput.Player.Crouch.performed += ctx => ToggleCrouch(); //Call the toggleCrouch method when crouch input is perfromed
+
+        // Subscribe to the hiddenItemsearch event
+        playerInput.Player.SearchHiddenItems.performed += ctx => SearchHidden(); //Call the SearchHidden method when hiddenItemSearch input is performed
     }
     private void Update()
     {
@@ -143,11 +154,9 @@ public class FirstPersonControls : MonoBehaviour
         if (holdingGun == true)
         {
             // Instantiate the projectile at the fire point
-            GameObject projectile = Instantiate(projectilePrefab,
-            firePoint.position, firePoint.rotation);
+            GameObject projectile = Instantiate(projectilePrefab,firePoint.position, firePoint.rotation);
             // Get the Rigidbody component of the projectile and set its velocity
-            Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.velocity = firePoint.forward * projectileSpeed;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();rb.velocity = firePoint.forward * projectileSpeed;
             // Destroy the projectile after 3 seconds
             Destroy(projectile, 3f);
         }
@@ -182,6 +191,8 @@ public class FirstPersonControls : MonoBehaviour
                 heldObject.transform.position = holdPosition.position;
                 heldObject.transform.rotation = holdPosition.rotation;
                 heldObject.transform.parent = holdPosition;
+
+                isHoldingHidden = true;
             }
             else if (hit.collider.CompareTag("Gun"))
             {
@@ -208,5 +219,18 @@ public class FirstPersonControls : MonoBehaviour
             characterController.height = crouchHeight;  
             isCrouching = true;
         }
+    }
+
+    public void SearchHidden()
+    {
+            // Instantiate the hiddenitem in the hidden item posiyion
+            GameObject hiddenItem = Instantiate(hiddenObject,hiddenPosition.position, hiddenPosition.rotation);
+            // Get the Rigidbody component of the hiddenItem
+            Rigidbody rb = hiddenItem.GetComponent<Rigidbody>();
+           // Destroy the hiddenitem if the item is not held
+            if (isHoldingHidden == false)
+            {
+            Destroy(hiddenItem, 7f);
+            }
     }
 }
