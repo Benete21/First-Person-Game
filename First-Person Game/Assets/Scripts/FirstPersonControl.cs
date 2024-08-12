@@ -7,6 +7,7 @@ using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Windows;
 using UnityEngine.Rendering;
+using Unity.UI;
 public class FirstPersonControls : MonoBehaviour
 {
     [Header("MOVEMENT SETTINGS")]
@@ -53,6 +54,11 @@ public class FirstPersonControls : MonoBehaviour
     private bool isHoldingHidden = false; // asks if the hidden item is held
     private bool hiddenActive = false;  //asks if thr hidden item is in the scene
 
+    [Header("INVENTORY SETTINGS")]
+    [Space(5)]
+    public GameObject canvaInventory;
+    private bool canvaActive = false;
+
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -88,6 +94,9 @@ public class FirstPersonControls : MonoBehaviour
 
         // Subscribe to the hiddenItemsearch event
         playerInput.Player.SearchHiddenItems.performed += ctx => SearchHidden(); //Call the SearchHidden method when hiddenItemSearch input is performed
+
+        // Subscribe to the inventory event
+        playerInput.Player.ToggleInventory.performed += ctx => ToggleInventory(); //Call the ToggleInventory method when inventory input is performed
     }
     private void Update()
     {
@@ -230,7 +239,20 @@ public class FirstPersonControls : MonoBehaviour
            // Destroy the hiddenitem if the item is not held
             if (isHoldingHidden == false)
             {
-            Destroy(hiddenItem, 7f);
+                Destroy(hiddenItem, 7f);
             }
+    }
+    public void ToggleInventory()
+    {
+        if (canvaActive)
+        {
+            canvaInventory.SetActive(false);
+            canvaActive = false;
+        }
+        else
+        {
+            canvaInventory.SetActive(true);
+            canvaActive = true;
+        }
     }
 }
