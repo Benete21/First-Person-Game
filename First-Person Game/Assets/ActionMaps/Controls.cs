@@ -98,6 +98,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PutInInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""06423a96-2446-4828-9f66-93ba46e68a90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -375,6 +384,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""392f5d9a-7321-4c14-b4d3-cec559052443"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""PutInInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a26969fe-ca94-42a8-a09b-261c60c3378f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PutInInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -414,6 +445,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_SearchHiddenItems = m_Player.FindAction("SearchHiddenItems", throwIfNotFound: true);
         m_Player_ToggleInventory = m_Player.FindAction("ToggleInventory", throwIfNotFound: true);
+        m_Player_PutInInventory = m_Player.FindAction("PutInInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -483,6 +515,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_SearchHiddenItems;
     private readonly InputAction m_Player_ToggleInventory;
+    private readonly InputAction m_Player_PutInInventory;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -495,6 +528,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @SearchHiddenItems => m_Wrapper.m_Player_SearchHiddenItems;
         public InputAction @ToggleInventory => m_Wrapper.m_Player_ToggleInventory;
+        public InputAction @PutInInventory => m_Wrapper.m_Player_PutInInventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -528,6 +562,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ToggleInventory.started += instance.OnToggleInventory;
             @ToggleInventory.performed += instance.OnToggleInventory;
             @ToggleInventory.canceled += instance.OnToggleInventory;
+            @PutInInventory.started += instance.OnPutInInventory;
+            @PutInInventory.performed += instance.OnPutInInventory;
+            @PutInInventory.canceled += instance.OnPutInInventory;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -556,6 +593,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ToggleInventory.started -= instance.OnToggleInventory;
             @ToggleInventory.performed -= instance.OnToggleInventory;
             @ToggleInventory.canceled -= instance.OnToggleInventory;
+            @PutInInventory.started -= instance.OnPutInInventory;
+            @PutInInventory.performed -= instance.OnPutInInventory;
+            @PutInInventory.canceled -= instance.OnPutInInventory;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -601,5 +641,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnSearchHiddenItems(InputAction.CallbackContext context);
         void OnToggleInventory(InputAction.CallbackContext context);
+        void OnPutInInventory(InputAction.CallbackContext context);
     }
 }

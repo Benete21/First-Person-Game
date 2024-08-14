@@ -25,11 +25,12 @@ public class FirstPersonControls : MonoBehaviour
     private Vector3 velocity; // Velocity of the player
     private CharacterController characterController; // Reference to the CharacterController component
 
-    [Header("SHOOTING SETTINGS")]
+    //does not need shooting mechanic
+    /*[Header("SHOOTING SETTINGS")]
     [Space(5)]
     public GameObject projectilePrefab; // Projectile prefab for shooting
     public Transform firePoint; // Point from which the projectile is fired
-    public float projectileSpeed = 20f; // Speed at which the projectile is fired
+    public float projectileSpeed = 20f; // Speed at which the projectile is fired*/
 
 
     [Header("PICKING UP SETTINGS")]
@@ -37,7 +38,7 @@ public class FirstPersonControls : MonoBehaviour
     public Transform holdPosition; // Position where the picked-up object will be held
     private GameObject heldObject; // Reference to the currently held object
     public float pickUpRange = 3f; // Range within which objects can be picked up
-    private bool holdingGun = false;
+    //private bool holdingGun = false;
 
     [Header("CROUCH SETTINGS")]
     [Space(5)]
@@ -58,6 +59,8 @@ public class FirstPersonControls : MonoBehaviour
     [Space(5)]
     public GameObject canvaInventory;
     private bool canvaActive = false;
+    public Transform ItemContent;
+    public GameObject InventoryItem;
 
     private void Awake()
     {
@@ -84,7 +87,7 @@ public class FirstPersonControls : MonoBehaviour
         playerInput.Player.Jump.performed += ctx => Jump(); // Call theJump method when jump input is performed
 
         // Subscribe to the shoot input event
-        playerInput.Player.Shoot.performed += ctx => Shoot(); // Call theShoot method when shoot input is performed
+        //playerInput.Player.Shoot.performed += ctx => Shoot(); // Call theShoot method when shoot input is performed
 
         // Subscribe to the pick-up input event
         playerInput.Player.PickUp.performed += ctx => PickUpObject(); //Call the PickUpObject method when pick-up input is performed
@@ -97,6 +100,9 @@ public class FirstPersonControls : MonoBehaviour
 
         // Subscribe to the inventory event
         playerInput.Player.ToggleInventory.performed += ctx => ToggleInventory(); //Call the ToggleInventory method when inventory input is performed
+
+        // Subscribe to the inventory adder event
+        playerInput.Player.PutInInventory.performed += ctx => PutInInventory(); //Call the PutInInventory method when inventory adderinput is performed
     }
     private void Update()
     {
@@ -158,7 +164,7 @@ public class FirstPersonControls : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
-    public void Shoot()
+    /*public void Shoot()
     {
         if (holdingGun == true)
         {
@@ -169,7 +175,7 @@ public class FirstPersonControls : MonoBehaviour
             // Destroy the projectile after 3 seconds
             Destroy(projectile, 3f);
         }
-    }
+    }*/
     public void PickUpObject()
     {
         // Check if we are already holding an object
@@ -177,7 +183,7 @@ public class FirstPersonControls : MonoBehaviour
         {
             heldObject.GetComponent<Rigidbody>().isKinematic = false; //Enable physics
             heldObject.transform.parent = null;
-            holdingGun = false;
+            //holdingGun = false;
         }
 
         // Perform a raycast from the camera's position forward
@@ -212,7 +218,7 @@ public class FirstPersonControls : MonoBehaviour
                 heldObject.transform.position = holdPosition.position;
                 heldObject.transform.rotation = holdPosition.rotation;
                 heldObject.transform.parent = holdPosition;
-                holdingGun = true;
+               // holdingGun = true;
             }
         }
     }
@@ -232,17 +238,39 @@ public class FirstPersonControls : MonoBehaviour
 
     public void SearchHidden()
     {
-            // Instantiate the hiddenitem in the hidden item posiyion
-            GameObject hiddenItem = Instantiate(hiddenObject,hiddenPosition.position, hiddenPosition.rotation);
-            // Get the Rigidbody component of the hiddenItem
-            Rigidbody rb = hiddenItem.GetComponent<Rigidbody>();
-           // Destroy the hiddenitem if the item is not held
-            if (isHoldingHidden == false)
-            {
-                Destroy(hiddenItem, 7f);
-            }
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
+
+        // Debugging: Draw the ray in the Scene view not necessary
+        Debug.DrawRay(playerCamera.position, playerCamera.forward * hiddenItemRange, Color.red, 2f);
+
+        if (Physics.Raycast(ray, out hit, hiddenItemRange))
+        {
+            //if (hit.collider.CompareTag("Hidden"))
+            //{
+                if (hiddenActive == false)
+                {
+                    // Instantiate the hiddenitem in the hidden item posiyion
+                    GameObject hiddenItem = Instantiate(hiddenObject, hiddenPosition.position, hiddenPosition.rotation);
+                    // Get the Rigidbody component of the hiddenItem
+                    Rigidbody rb = hiddenItem.GetComponent<Rigidbody>();
+                    // Destroy the hiddenitem if the item is not held
+                    hiddenActive = true;
+                    Debug.Log("found item");
+                    //used to make the item disapear after some time
+                    if (isHoldingHidden == false)
+                    {
+                        Destroy(hiddenItem, 7f);
+                    }
+                }
+            // }
+        }
+        else
+        {
+            Debug.Log("not close to item");
+        }
     }
-    public void ToggleInventory()
+    public void ToggleInventory() // toggles the inventory 
     {
         if (canvaActive)
         {
@@ -253,6 +281,14 @@ public class FirstPersonControls : MonoBehaviour
         {
             canvaInventory.SetActive(true);
             canvaActive = true;
+        }
+    }
+    public void PutInInventory()// code to put items in the hand into invetory
+    {
+        if(heldObject != null) 
+        {
+            Destroy(heldObject); // destroys the held item on the scene
+            GameObject inventItem = Instantiate(InventoryItem, ItemContent); // puts the held item that was in the hand into the inventory
         }
     }
 }
