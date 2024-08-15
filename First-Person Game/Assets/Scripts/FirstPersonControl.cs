@@ -8,6 +8,9 @@ using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Windows;
 using UnityEngine.Rendering;
 using Unity.UI;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
+using Unity.VisualScripting;
 public class FirstPersonControls : MonoBehaviour
 {
     [Header("MOVEMENT SETTINGS")]
@@ -50,7 +53,13 @@ public class FirstPersonControls : MonoBehaviour
     [Header("SEARCH SETTINGS")]
     [Space(5)]
     public Transform hiddenPosition; // Position where hiddenitem is
+    public Transform clue1Position;
+    public Transform clue2Position;
+    public Transform clue3Position;
     public GameObject hiddenObject; // Referese to hidden item prefab
+    public GameObject clue1Object;
+    public GameObject clue2Object;
+    public GameObject clue3Object;
     public float hiddenItemRange = 6f; 
     private bool isHoldingHidden = false; // asks if the hidden item is held
     private bool hiddenActive = false;  //asks if thr hidden item is in the scene
@@ -61,6 +70,9 @@ public class FirstPersonControls : MonoBehaviour
     private bool canvaActive = false;
     public Transform ItemContent;
     public GameObject InventoryItem;
+
+    private Text itemName;
+    //private Text itemClue;
 
     private void Awake()
     {
@@ -252,16 +264,26 @@ public class FirstPersonControls : MonoBehaviour
                 {
                     // Instantiate the hiddenitem in the hidden item posiyion
                     GameObject hiddenItem = Instantiate(hiddenObject, hiddenPosition.position, hiddenPosition.rotation);
+                    GameObject clue1 = Instantiate(clue1Object, clue1Position.position, clue1Position.rotation);
+                    GameObject clue2 = Instantiate(clue2Object, clue2Position.position, clue2Position.rotation);
+                    GameObject clue3 = Instantiate(clue3Object, clue3Position.position, clue3Position.rotation);
                     // Get the Rigidbody component of the hiddenItem
                     Rigidbody rb = hiddenItem.GetComponent<Rigidbody>();
-                    // Destroy the hiddenitem if the item is not held
+                    Rigidbody rbclue1 = clue1.GetComponent<Rigidbody>();
+                    Rigidbody rbclue2 = clue2.GetComponent<Rigidbody>();
+                    Rigidbody rbclue3 = clue3.GetComponent<Rigidbody>();
+                // Destroy the hiddenitem if the item is not held
                     hiddenActive = true;
                     Debug.Log("found item");
                     //used to make the item disapear after some time
-                    if (isHoldingHidden == false)
+                   /* if (isHoldingHidden == false)
                     {
+                        // Destroy the hiddenitem if the item is not held
                         Destroy(hiddenItem, 7f);
-                    }
+                        Destroy(clue1, 7f);
+                        Destroy(clue2, 7f);
+                        Destroy(clue3, 7f);
+                    }*/
                 }
             // }
         }
@@ -289,6 +311,11 @@ public class FirstPersonControls : MonoBehaviour
         {
             Destroy(heldObject); // destroys the held item on the scene
             GameObject inventItem = Instantiate(InventoryItem, ItemContent); // puts the held item that was in the hand into the inventory
+            itemName = inventItem.transform.Find("cluetext").GetComponent<Text>();
+            //itemClue = inventItem.transform.Find("cluetext").GetComponent<Text>();
+
+            itemName.text = inventItem.name;
+            //itemClue.text = inventItem.clue;
         }
     }
 }
