@@ -1,15 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Presets;
-using UnityEditor.Sprites;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Windows;
 using UnityEngine.Rendering;
-using Unity.UI;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 using Unity.VisualScripting;
 public class FirstPersonControls : MonoBehaviour
 {
