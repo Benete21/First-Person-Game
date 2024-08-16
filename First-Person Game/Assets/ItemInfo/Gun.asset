@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4f800261e5c6f47aafa474e195e8ce, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  name: 
+  names: Gun
   icon: {fileID: 0}
-  description: 
+  description: Gun (Can't Shoot)

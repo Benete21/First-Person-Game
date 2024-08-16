@@ -70,11 +70,13 @@ public class FirstPersonControls : MonoBehaviour
     private bool canvaActive = false;
     public Transform ItemContent;
     public GameObject InventoryItem;
+
+    public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
     public ItemInfo iteminfo;
 
     private Text itemName;
-    //private Text itemClue;
-
+    private Text itemDesc;
+    private Sprite itemIcon;
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -308,16 +310,15 @@ public class FirstPersonControls : MonoBehaviour
     }
     public void PutInInventory()// code to put items in the hand into invetory
     {
+            if (heldObject != null)
+            {
+                Destroy(heldObject); // destroys the held item on the scene
+                GameObject inventItem = Instantiate(InventoryItem, ItemContent); // puts the held item that was in the hand into the inventory
+                itemName = inventItem.transform.Find("ItemName").GetComponent<Text>(); // this is so the data in the iteminfo can be assigned to the same in the inventory UI
+                itemDesc = inventItem.transform.Find("ItemDesc").GetComponent<Text>();
 
-        if(heldObject != null) 
-        {
-            Destroy(heldObject); // destroys the held item on the scene
-            GameObject inventItem = Instantiate(InventoryItem, ItemContent); // puts the held item that was in the hand into the inventory
-            itemName = iteminfo.GetComponent<Text>();
-            //itemClue = inventItem.transform.Find("cluetext").GetComponent<Text>();
-
-            itemName.text = inventItem.name;
-            //itemClue.text = inventItem.clue;
-        }
+                itemName.text = iteminfo.getName();
+                itemDesc.text = iteminfo.getDescription();
+            }
     }
 }

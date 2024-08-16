@@ -7,8 +7,8 @@ using UnityEngine;
 public class ItemInfo : ScriptableObject
 {
     [SerializeField]
-    private string name;
-    public string Name => name;
+    private string names;
+    public string Names => names;
 
     [SerializeField]
     private Sprite icon;
@@ -16,7 +16,21 @@ public class ItemInfo : ScriptableObject
 
     [SerializeField]
     private string description;
-    public string Description => description;   
+    public string Description => description;
 
-    
+    public ItemInfo(string names, string description)
+    {
+        // Assigning
+        this.name = name;
+        this.description = description;
+    }
+    public string getName()
+    {
+        return names;
+    }
+    public string getDescription() 
+    { 
+        return description;
+    }
+
 }
