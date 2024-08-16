@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1663365198839413017}
   - component: {fileID: 1677883292638779464}
   - component: {fileID: 4380733915954745848}
+  - component: {fileID: -2408791213305445195}
   m_Layer: 0
   m_Name: HiddenItem
   m_TagString: PickUp
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2408791213305445195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850571276652249222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ed8e2b13c0745428995d49a9e6d992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInformation: {fileID: 11400000, guid: a8e4b6b214695c74c8e6f563e3ea0c55, type: 2}

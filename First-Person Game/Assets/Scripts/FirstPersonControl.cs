@@ -70,6 +70,7 @@ public class FirstPersonControls : MonoBehaviour
     private bool canvaActive = false;
     public Transform ItemContent;
     public GameObject InventoryItem;
+    public ItemInfo iteminfo;
 
     private Text itemName;
     //private Text itemClue;
@@ -307,11 +308,12 @@ public class FirstPersonControls : MonoBehaviour
     }
     public void PutInInventory()// code to put items in the hand into invetory
     {
+
         if(heldObject != null) 
         {
             Destroy(heldObject); // destroys the held item on the scene
             GameObject inventItem = Instantiate(InventoryItem, ItemContent); // puts the held item that was in the hand into the inventory
-            itemName = inventItem.transform.Find("cluetext").GetComponent<Text>();
+            itemName = iteminfo.GetComponent<Text>();
             //itemClue = inventItem.transform.Find("cluetext").GetComponent<Text>();
 
             itemName.text = inventItem.name;

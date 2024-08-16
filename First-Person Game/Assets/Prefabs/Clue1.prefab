@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5131944767977483414}
   - component: {fileID: 5734055179090202912}
   - component: {fileID: 2103254121429422358}
-  - component: {fileID: 634017271215082353}
   - component: {fileID: -2980055605578240312}
+  - component: {fileID: 3982012183090758180}
   m_Layer: 0
   m_Name: Clue1
   m_TagString: PickUp
@@ -109,19 +109,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &634017271215082353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406384096169552275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4f800261e5c6f47aafa474e195e8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Clue3
 --- !u!54 &-2980055605578240312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,3 +136,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &3982012183090758180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406384096169552275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ed8e2b13c0745428995d49a9e6d992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInformation: {fileID: 11400000, guid: 5100288248c438845b4ee9cd2a13d621, type: 2}

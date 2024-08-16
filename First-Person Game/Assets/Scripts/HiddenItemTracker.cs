@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class HiddenItemTracker : MonoBehaviour
 {
-    public ItemInfo[] items;    
+    public ItemInfo itemInformation;    
 }
