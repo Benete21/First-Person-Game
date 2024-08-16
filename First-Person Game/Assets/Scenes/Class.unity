@@ -2990,7 +2990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &606402222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3831,9 +3831,9 @@ MonoBehaviour:
   hiddenItemRange: 4
   canvaInventory: {fileID: 606402221}
   ItemContent: {fileID: 1381976135}
-  InventoryItem: {fileID: 1048250352445652601, guid: 2c036ca4f0dff864aaa071215ae42d10,
+  InventoryItem: {fileID: 6743549055672300149, guid: 0b16f8d37e88c524aba426da811a86c6,
     type: 3}
-  iteminfo: {fileID: 0}
+  items: []
 --- !u!64 &990960128
 MeshCollider:
   m_ObjectHideFlags: 0
