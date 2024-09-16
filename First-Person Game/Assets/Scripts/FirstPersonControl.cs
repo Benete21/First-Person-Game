@@ -113,6 +113,9 @@ public class FirstPersonControls : MonoBehaviour
 
         // Subscribe to the inventory adder event
         playerInput.Player.PutInInventory.performed += ctx => PutInInventory(); //Call the PutInInventory method when inventory adderinput is performed
+
+        // Subscribe to the interact input event
+        playerInput.Player.Interact.performed += ctx => Interact(); // Interact with switch
     }
     private void Update()
     {
@@ -315,5 +318,35 @@ public class FirstPersonControls : MonoBehaviour
                 itemName.text = iteminfo.getName();
                 itemDesc.text = iteminfo.getDescription();
             }
+    }
+    public void Interact()
+    {
+        // Perform a raycast to detect the lightswitch
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, pickUpRange))
+        {
+            if (hit.collider.CompareTag("Door")) // Check if the object is a door
+            {
+                // Start moving the door upwards
+                StartCoroutine(RaiseDoor(hit.collider.gameObject));
+            }
+        }
+    }
+    private IEnumerator RaiseDoor(GameObject door)
+    {
+        float raiseAmount = 5f; // The total distance the door will be raised
+        float raiseSpeed = 2f; // The speed at which the door will be raised
+        Vector3 startPosition = door.transform.position; // Store the initial position of the door
+        Vector3 endPosition = startPosition + Vector3.up * raiseAmount; // Calculate the final position of the door after raising
+
+        // Continue raising the door until it reaches the target height
+        while (door.transform.position.y < endPosition.y)
+        {
+            // Move the door towards the target position at the specified speed
+            door.transform.position = Vector3.MoveTowards(door.transform.position, endPosition, raiseSpeed * Time.deltaTime);
+            yield return null; // Wait until the next frame before continuing the loop
+        }
     }
 }

@@ -107,6 +107,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6333112-ee50-4a56-a3e2-39d804d4e569"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -278,7 +287,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""027b62c4-0c80-45f3-acaa-195f11b3a3c7"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -289,7 +298,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b8da5fda-1204-4007-a313-9e8567c651c0"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -406,6 +415,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""PutInInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a10ff85-a444-491c-9a3c-8391ae4a5df0"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b9fec02-6fd8-4ba1-839c-f19e69d42933"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -446,6 +477,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_SearchHiddenItems = m_Player.FindAction("SearchHiddenItems", throwIfNotFound: true);
         m_Player_ToggleInventory = m_Player.FindAction("ToggleInventory", throwIfNotFound: true);
         m_Player_PutInInventory = m_Player.FindAction("PutInInventory", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -516,6 +548,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SearchHiddenItems;
     private readonly InputAction m_Player_ToggleInventory;
     private readonly InputAction m_Player_PutInInventory;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -529,6 +562,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @SearchHiddenItems => m_Wrapper.m_Player_SearchHiddenItems;
         public InputAction @ToggleInventory => m_Wrapper.m_Player_ToggleInventory;
         public InputAction @PutInInventory => m_Wrapper.m_Player_PutInInventory;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -565,6 +599,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PutInInventory.started += instance.OnPutInInventory;
             @PutInInventory.performed += instance.OnPutInInventory;
             @PutInInventory.canceled += instance.OnPutInInventory;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -596,6 +633,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PutInInventory.started -= instance.OnPutInInventory;
             @PutInInventory.performed -= instance.OnPutInInventory;
             @PutInInventory.canceled -= instance.OnPutInInventory;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -642,5 +682,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnSearchHiddenItems(InputAction.CallbackContext context);
         void OnToggleInventory(InputAction.CallbackContext context);
         void OnPutInInventory(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
