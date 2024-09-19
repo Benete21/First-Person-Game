@@ -6,6 +6,10 @@ using UnityEngine.Windows;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEngine.UIElements.Experimental;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+using System.Drawing;
 public class FirstPersonControls : MonoBehaviour
 {
     [Header("MOVEMENT SETTINGS")]
@@ -72,6 +76,17 @@ public class FirstPersonControls : MonoBehaviour
     private Text itemName;
     private Text itemDesc;
     private Sprite itemIcon;
+
+    [Header("INTERACT SETTINGS")]
+    [Space(5)]
+    public bool isDoorOpen = false;
+    public float DoorAngle = 90f;
+    public float openSpeed = 2f;
+    public Quaternion openRotation;
+    public Quaternion closedRotation;
+    public bool Key1 = false;
+    public bool Key2 = false;
+    public bool Key3 = false;
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -204,7 +219,7 @@ public class FirstPersonControls : MonoBehaviour
         RaycastHit hit;
 
         // Debugging: Draw the ray in the Scene view not necessary
-        Debug.DrawRay(playerCamera.position, playerCamera.forward * pickUpRange, Color.red, 2f);
+        //Debug.DrawRay(playerCamera.position, playerCamera.forward * pickUpRange, Color.red, 2f);
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
@@ -222,7 +237,7 @@ public class FirstPersonControls : MonoBehaviour
 
                 isHoldingHidden = true;
             }
-            else if (hit.collider.CompareTag("Gun"))
+           /* else if (hit.collider.CompareTag("Gun"))
             {
                 // Pick up the object
                 heldObject = hit.collider.gameObject;
@@ -232,6 +247,48 @@ public class FirstPersonControls : MonoBehaviour
                 heldObject.transform.rotation = holdPosition.rotation;
                 heldObject.transform.parent = holdPosition;
                // holdingGun = true;
+            }*/
+            else if (hit.collider.CompareTag("Key1"))
+            {
+                // Pick up the object
+                heldObject = hit.collider.gameObject;
+                heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+
+                // Attach the object to the hold position
+                heldObject.transform.position = holdPosition.position;
+                heldObject.transform.rotation = holdPosition.rotation;
+                heldObject.transform.parent = holdPosition;
+
+                isHoldingHidden = true;
+                Key1 = true;
+            }
+            else if (hit.collider.CompareTag("Key2"))
+            {
+                // Pick up the object
+                heldObject = hit.collider.gameObject;
+                heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+
+                // Attach the object to the hold position
+                heldObject.transform.position = holdPosition.position;
+                heldObject.transform.rotation = holdPosition.rotation;
+                heldObject.transform.parent = holdPosition;
+
+                isHoldingHidden = true;
+                Key2 = true;
+            }
+            else if (hit.collider.CompareTag("Key3"))
+            {
+                // Pick up the object
+                heldObject = hit.collider.gameObject;
+                heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+
+                // Attach the object to the hold position
+                heldObject.transform.position = holdPosition.position;
+                heldObject.transform.rotation = holdPosition.rotation;
+                heldObject.transform.parent = holdPosition;
+
+                isHoldingHidden = true;
+                Key3 = true;
             }
         }
     }
@@ -255,7 +312,7 @@ public class FirstPersonControls : MonoBehaviour
         RaycastHit hit;
 
         // Debugging: Draw the ray in the Scene view not necessary
-        Debug.DrawRay(playerCamera.position, playerCamera.forward * hiddenItemRange, Color.red, 2f);
+        //Debug.DrawRay(playerCamera.position, playerCamera.forward * hiddenItemRange, Color.red, 2f);
 
         if (Physics.Raycast(ray, out hit, hiddenItemRange))
         {
@@ -327,26 +384,47 @@ public class FirstPersonControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
-            if (hit.collider.CompareTag("Door")) // Check if the object is a door
+            if (Key1 == true)
             {
-                // Start moving the door upwards
-                StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                if (hit.collider.CompareTag("Door1")) // Check if the object is a door
+                {              
+                    // Start moving the door upwards
+                    StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                }
             }
+            else if (Key2 == true)
+            {
+                if (hit.collider.CompareTag("Door2")) // Check if the object is a door
+                {
+                    // Start moving the door upwards
+                    StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                }
+            }
+            else if (Key3 == true)
+            {
+                if (hit.collider.CompareTag("Door3")) // Check if the object is a door
+                {
+                    // Start moving the door upwards
+                    StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                }
+            }
+
         }
     }
     private IEnumerator RaiseDoor(GameObject door)
-    {
-        float raiseAmount = 5f; // The total distance the door will be raised
-        float raiseSpeed = 2f; // The speed at which the door will be raised
-        Vector3 startPosition = door.transform.position; // Store the initial position of the door
-        Vector3 endPosition = startPosition + Vector3.up * raiseAmount; // Calculate the final position of the door after raising
-
-        // Continue raising the door until it reaches the target height
-        while (door.transform.position.y < endPosition.y)
         {
-            // Move the door towards the target position at the specified speed
-            door.transform.position = Vector3.MoveTowards(door.transform.position, endPosition, raiseSpeed * Time.deltaTime);
-            yield return null; // Wait until the next frame before continuing the loop
+            float raiseAmount = 5f; // The total distance the door will be raised
+            float raiseSpeed = 2f; // The speed at which the door will be raised
+            Vector3 startPosition = door.transform.position; // Store the initial position of the door
+            Vector3 endPosition = startPosition + Vector3.up * raiseAmount; // Calculate the final position of the door after raising
+                                                                            // Continue raising the door until it reaches the target height
+            while (door.transform.position.y < endPosition.y)
+            {
+                // Move the door towards the target position at the specifiedspeed
+                door.transform.position = Vector3.MoveTowards(door.transform.position, endPosition, raiseSpeed * Time.deltaTime);
+                yield return null; // Wait until the next frame before continuing the loop
+            }
         }
     }
-}
+
+

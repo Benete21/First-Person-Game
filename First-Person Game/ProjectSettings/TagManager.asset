@@ -8,7 +8,12 @@ TagManager:
   - PickUp
   - Gun
   - Hidden
-  - Door
+  - Key1
+  - Key2
+  - Key3
+  - Door1
+  - Door2
+  - Door3
   layers:
   - Default
   - TransparentFX
