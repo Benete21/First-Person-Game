@@ -8,7 +8,6 @@ using UnityEngine.UI;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine.UIElements.Experimental;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 using System.Drawing;
 public class FirstPersonControls : MonoBehaviour
 {
