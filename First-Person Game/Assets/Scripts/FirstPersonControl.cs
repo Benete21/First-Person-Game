@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine.UIElements.Experimental;
 using System.Drawing;
+using TMPro;
 public class FirstPersonControls : MonoBehaviour
 {
     [Header("MOVEMENT SETTINGS")]
@@ -76,6 +77,13 @@ public class FirstPersonControls : MonoBehaviour
     private Text itemDesc;
     private Sprite itemIcon;
 
+    [Header("UI SETTINGS")]
+    public TextMeshProUGUI pickUpText;
+    public Image healthBar;
+    public float damageAmount = 0.25f; // Reduce the health bar by this amount
+    private float healAmount = 0.5f;// Fill the health bar by this amount
+
+
     [Header("INTERACT SETTINGS")]
     [Space(5)]
     public bool isDoorOpen = false;
@@ -137,6 +145,7 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
+        CheckForPickUp();  
     }
     public void Move()
     {
@@ -291,6 +300,41 @@ public class FirstPersonControls : MonoBehaviour
             }
         }
     }
+
+    private void CheckForPickUp()
+    {
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
+
+        // Perform raycast to detect objects
+        if (Physics.Raycast(ray, out hit, pickUpRange))
+        {
+            // Check if the object has the "PickUp" tag
+            if (hit.collider.CompareTag("PickUp"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else if(hit.collider.CompareTag("Key1"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else
+            {
+                // Hide the pick-up text if not looking at a "PickUp" object
+                pickUpText.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            // Hide the text if not looking at any object
+            pickUpText.gameObject.SetActive(false);
+        }
+    }
+
     public void ToggleCrouch()
     {
         if (isCrouching)
