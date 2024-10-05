@@ -76,7 +76,7 @@ MonoBehaviour:
     m_PointSize: 78
     m_Scale: 1
     m_UnitsPerEM: 1000
-    m_LineHeight: 99.06
+    m_LineHeight: 114.1
     m_AscentLine: 75.66
     m_CapLine: 57
     m_MeanLine: 57
@@ -2539,7 +2539,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 0.0048059113, g: 0.8490566, b: 0.63799393, a: 1}
+    - _FaceColor: {r: 0.9496831, g: 0.9687946, b: 0.96981126, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

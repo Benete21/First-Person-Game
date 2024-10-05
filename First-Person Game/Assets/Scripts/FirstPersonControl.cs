@@ -322,6 +322,36 @@ public class FirstPersonControls : MonoBehaviour
                 pickUpText.gameObject.SetActive(true);
                 pickUpText.text = hit.collider.gameObject.name;
             }
+            else if (hit.collider.CompareTag("Key2"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else if (hit.collider.CompareTag("Key3"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else if (hit.collider.CompareTag("Door1"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else if (hit.collider.CompareTag("Door2"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else if (hit.collider.CompareTag("Door3"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
             else
             {
                 // Hide the pick-up text if not looking at a "PickUp" object
