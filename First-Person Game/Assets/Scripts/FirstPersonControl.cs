@@ -27,14 +27,6 @@ public class FirstPersonControls : MonoBehaviour
     private Vector3 velocity; // Velocity of the player
     private CharacterController characterController; // Reference to the CharacterController component
 
-    //does not need shooting mechanic
-    /*[Header("SHOOTING SETTINGS")]
-    [Space(5)]
-    public GameObject projectilePrefab; // Projectile prefab for shooting
-    public Transform firePoint; // Point from which the projectile is fired
-    public float projectileSpeed = 20f; // Speed at which the projectile is fired*/
-
-
     [Header("PICKING UP SETTINGS")]
     [Space(5)]
     public Transform holdPosition; // Position where the picked-up object will be held
@@ -79,9 +71,10 @@ public class FirstPersonControls : MonoBehaviour
 
     [Header("UI SETTINGS")]
     public TextMeshProUGUI pickUpText;
-    public Image healthBar;
-    public float damageAmount = 0.25f; // Reduce the health bar by this amount
-    private float healAmount = 0.5f;// Fill the health bar by this amount
+   // public Image healthBar;
+   // public float damageAmount = 0.25f; // Reduce the health bar by this amount
+   // private float healAmount = 0.5f;// Fill the health bar by this amount
+    public DialogueManager dialogueManager;
 
 
     [Header("INTERACT SETTINGS")]
@@ -118,9 +111,6 @@ public class FirstPersonControls : MonoBehaviour
         // Subscribe to the jump input event
         playerInput.Player.Jump.performed += ctx => Jump(); // Call theJump method when jump input is performed
 
-        // Subscribe to the shoot input event
-        //playerInput.Player.Shoot.performed += ctx => Shoot(); // Call theShoot method when shoot input is performed
-
         // Subscribe to the pick-up input event
         playerInput.Player.PickUp.performed += ctx => PickUpObject(); //Call the PickUpObject method when pick-up input is performed
 
@@ -138,6 +128,9 @@ public class FirstPersonControls : MonoBehaviour
 
         // Subscribe to the interact input event
         playerInput.Player.Interact.performed += ctx => Interact(); // Interact with switch
+
+                // Subscribe to the interact input event
+        playerInput.Player.DialogueNext.performed += ctx => DialogueNext(); // Interact to go to the next dialogue option
     }
     private void Update()
     {
@@ -200,18 +193,6 @@ public class FirstPersonControls : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
-    /*public void Shoot()
-    {
-        if (holdingGun == true)
-        {
-            // Instantiate the projectile at the fire point
-            GameObject projectile = Instantiate(projectilePrefab,firePoint.position, firePoint.rotation);
-            // Get the Rigidbody component of the projectile and set its velocity
-            Rigidbody rb = projectile.GetComponent<Rigidbody>();rb.velocity = firePoint.forward * projectileSpeed;
-            // Destroy the projectile after 3 seconds
-            Destroy(projectile, 3f);
-        }
-    }*/
     public void PickUpObject()
     {
         // Check if we are already holding an object
@@ -498,6 +479,11 @@ public class FirstPersonControls : MonoBehaviour
                 yield return null; // Wait until the next frame before continuing the loop
             }
         }
+    private void DialogueNext()
+    {
+        FindObjectOfType<DialogueManager>().DisplayNextSentence();
     }
+}
+
 
 

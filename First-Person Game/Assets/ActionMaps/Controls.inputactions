@@ -33,15 +33,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
-                    "type": "Button",
-                    "id": "9be698c3-d8c8-4a6b-9385-a73106aeb44d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PickUp",
                     "type": "Button",
                     "id": "ff1caea7-fbab-4d81-82d8-b6205750314b",
@@ -90,6 +81,15 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "c6333112-ee50-4a56-a3e2-39d804d4e569",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DialogueNext",
+                    "type": "Button",
+                    "id": "51238f99-2686-415e-b3ab-3096ea04f17f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -264,28 +264,6 @@
                 },
                 {
                     "name": "",
-                    "id": "027b62c4-0c80-45f3-acaa-195f11b3a3c7",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b8da5fda-1204-4007-a313-9e8567c651c0",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3fa4bbf5-ed82-45b5-8048-dc67833dcc1b",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -413,6 +391,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41c6d0b2-3dda-4c41-9b4c-f5211854c670",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "DialogueNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7b05ca2-ace1-470f-bb7d-f12faf249171",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DialogueNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

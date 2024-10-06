@@ -15,6 +15,7 @@ TagManager:
   - Door2
   - Door3
   - Safe
+  - Dialogue
   layers:
   - Default
   - TransparentFX
