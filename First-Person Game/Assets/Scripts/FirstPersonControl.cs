@@ -75,6 +75,7 @@ public class FirstPersonControls : MonoBehaviour
    // public float damageAmount = 0.25f; // Reduce the health bar by this amount
    // private float healAmount = 0.5f;// Fill the health bar by this amount
     public DialogueManager dialogueManager;
+    public Dialogue dialogue;
 
 
     [Header("INTERACT SETTINGS")]
@@ -200,6 +201,9 @@ public class FirstPersonControls : MonoBehaviour
         {
             heldObject.GetComponent<Rigidbody>().isKinematic = false; //Enable physics
             heldObject.transform.parent = null;
+            Key1 = true;
+            Key2 = true;
+            Key3 = true;
             //holdingGun = false;
         }
 
