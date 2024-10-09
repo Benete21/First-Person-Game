@@ -81,10 +81,10 @@ public class FirstPersonControls : MonoBehaviour
     [Header("INTERACT SETTINGS")]
     [Space(5)]
     public bool isDoorOpen = false;
-    public float DoorAngle = 90f;
-    public float openSpeed = 2f;
     public Quaternion openRotation;
     public Quaternion closedRotation;
+    public Animator animatorDoor;
+    public Animator animatorDoor2;
     public bool Key1 = false;
     public bool Key2 = false;
     public bool Key3 = false;
@@ -201,9 +201,9 @@ public class FirstPersonControls : MonoBehaviour
         {
             heldObject.GetComponent<Rigidbody>().isKinematic = false; //Enable physics
             heldObject.transform.parent = null;
-            Key1 = true;
-            Key2 = true;
-            Key3 = true;
+            Key1 = false;
+            Key2 = false;
+            Key3 = false;
             //holdingGun = false;
         }
 
@@ -455,7 +455,10 @@ public class FirstPersonControls : MonoBehaviour
                 if (hit.collider.CompareTag("Door2")) // Check if the object is a door
                 {
                     // Start moving the door upwards
-                    StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                    //StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                    animatorDoor.SetBool("isDoorOpen", true);
+                    animatorDoor2.SetBool("isDoorOpen2", true);
+
                 }
             }
             else if (Key3 == true)
