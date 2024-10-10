@@ -6,19 +6,20 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public Camera mainCamera; // Reference to the camera (assign in the Inspector)
-    public float rotationSpeed = 45f; // Speed at which the camera rotates
-    private bool isRotating = false; // Track if the camera is currently rotating
+    //public float rotationSpeed = 45f; // Speed at which the camera rotates
+    //private bool isRotating = false; // Track if the camera is currently rotating
     public GameObject[] UIElements; // any other UI elemets
     public GameObject initialButton; // begin button
+    public Animator animatorbook;
 
     // Method to rotate the camera left by 90 degrees
-    public void RotateCameraLeftBy90Degrees()
+   /* public void RotateCameraLeftBy90Degrees()
     {
         if (!isRotating) // Prevent triggering multiple rotations simultaneously
         {
             StartCoroutine(RotateCameraCoroutine(90f)); 
         }
-    }
+    }*/
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -27,9 +28,18 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void initiateGame()
+    {
+        initialButton.SetActive(false);
+        animatorbook.SetBool("Begin", true);
+        foreach (GameObject UIelement in UIElements)
+        {
+            UIelement.SetActive(true);
+        }
+    }
 
     // Coroutine to smoothly rotate the camera
-    private IEnumerator RotateCameraCoroutine(float angle)
+    /*private IEnumerator RotateCameraCoroutine(float angle)
     {
         isRotating = true;
 
@@ -53,6 +63,6 @@ public class UIManager : MonoBehaviour
         {
             UIelement.SetActive(true);
         }
-    }
+    }*/
 }
 
