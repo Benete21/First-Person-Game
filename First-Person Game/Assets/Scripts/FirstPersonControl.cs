@@ -26,6 +26,7 @@ public class FirstPersonControls : MonoBehaviour
     private float verticalLookRotation = 0f; // Keeps track of vertical camera rotation for clamping
     private Vector3 velocity; // Velocity of the player
     private CharacterController characterController; // Reference to the CharacterController component
+    public Animator animChara;
 
     [Header("PICKING UP SETTINGS")]
     [Space(5)]
@@ -150,7 +151,11 @@ public class FirstPersonControls : MonoBehaviour
         move = transform.TransformDirection(move);
 
         float currentSpeed;
-        if (isCrouching)
+        if(moveInput.x == 0 && moveInput.y == 0)
+        {
+            currentSpeed = 0;
+        }
+        else if (isCrouching)
         {
             currentSpeed = crouchSpeed;
         }
@@ -160,7 +165,8 @@ public class FirstPersonControls : MonoBehaviour
         }
 
         // Move the character controller based on the movement vector and speed
-    characterController.Move(move * moveSpeed * Time.deltaTime);
+        characterController.Move(move * moveSpeed * Time.deltaTime);
+        animChara.SetFloat("Speed", currentSpeed);
     }
     public void LookAround()
     {
@@ -458,6 +464,8 @@ public class FirstPersonControls : MonoBehaviour
                     //StartCoroutine(RaiseDoor(hit.collider.gameObject));
                     animatorDoor.SetBool("isDoorOpen", true);
                     animatorDoor2.SetBool("isDoorOpen2", true);
+                    AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
+                    doorAudio.Play();
 
                 }
             }
