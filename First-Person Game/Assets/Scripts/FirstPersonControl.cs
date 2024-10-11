@@ -471,16 +471,16 @@ public class FirstPersonControls : MonoBehaviour
 
                 }
             }
-            else if (Key3 == true)
-            {
-                if (hit.collider.CompareTag("Door3")) // Check if the object is a door
+            //else if (Key3 == true)
+            //{
+                else if (hit.collider.CompareTag("Door3")) // Check if the object is a door
                 {
                     animatorDoorEnt.SetBool("Entrance_Door_Open", true);
                     animatorDoorEnt2.SetBool("Entrance_Door_Open2", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
                 }
-            }
+           // }
 
         }
     }
