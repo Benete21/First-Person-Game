@@ -86,6 +86,7 @@ public class FirstPersonControls : MonoBehaviour
     public Quaternion closedRotation;
     public Animator animatorDoor;
     public Animator animatorDoor2;
+    public Animator animatorDoorBase;
     public bool Key1 = false;
     public bool Key2 = false;
     public bool Key3 = false;
@@ -448,20 +449,19 @@ public class FirstPersonControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
-            if (Key1 == true)
-            {
+            //if (Key1 == true)
+            //{
                 if (hit.collider.CompareTag("Door1")) // Check if the object is a door
-                {              
-                    // Start moving the door upwards
-                    StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                {
+                    animatorDoorBase.SetBool("Basement_Door_Open", true);
+                    AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
+                    doorAudio.Play();
                 }
-            }
+           // }
             else if (Key2 == true)
             {
                 if (hit.collider.CompareTag("Door2")) // Check if the object is a door
-                {
-                    // Start moving the door upwards
-                    //StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                {                   
                     animatorDoor.SetBool("isDoorOpen", true);
                     animatorDoor2.SetBool("isDoorOpen2", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
@@ -474,7 +474,10 @@ public class FirstPersonControls : MonoBehaviour
                 if (hit.collider.CompareTag("Door3")) // Check if the object is a door
                 {
                     // Start moving the door upwards
-                    StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                    //StartCoroutine(RaiseDoor(hit.collider.gameObject));
+                    animatorDoorBase.SetBool("isDoorOpen", true);
+                    AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
+                    doorAudio.Play();
                 }
             }
 
