@@ -449,15 +449,15 @@ public class FirstPersonControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
-            //if (Key1 == true)
-            //{
+            if (Key1 == true)
+            {
                 if (hit.collider.CompareTag("Door1")) // Check if the object is a door
                 {
                     animatorDoorBase.SetBool("Basement_Door_Open", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
                 }
-           // }
+            }
             else if (Key2 == true)
             {
                 if (hit.collider.CompareTag("Door2")) // Check if the object is a door
