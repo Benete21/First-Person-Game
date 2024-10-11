@@ -11885,6 +11885,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 919434575}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f756fdd04a60cb468f0b46ede190c94,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 919434578}
   m_SourcePrefab: {fileID: 100100000, guid: 8f756fdd04a60cb468f0b46ede190c94, type: 3}
 --- !u!1 &376791036
 GameObject:
@@ -12953,7 +12957,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 15ee88ba36144d945bbf6fc3829be353,
         type: 3}
       propertyPath: m_TagString
-      value: Door3
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13151,8 +13155,8 @@ Transform:
   - {fileID: 1136227091}
   - {fileID: 139205526}
   - {fileID: 785637872}
-  - {fileID: 317271203}
   - {fileID: 2012897174}
+  - {fileID: 317271203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &584979002
@@ -26019,6 +26023,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2619086233303812490, guid: 8f756fdd04a60cb468f0b46ede190c94, type: 3}
+--- !u!95 &919434578
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919434571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8706d2110bea49346a7e6cc29dcecde6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &920647581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a38dee1bfab7b7c4a86ddc4a07aea30d,
@@ -44646,6 +44671,7 @@ MonoBehaviour:
   closedRotation: {x: 0, y: 0, z: 0, w: 0}
   animatorDoor: {fileID: 1136227095}
   animatorDoor2: {fileID: 139205530}
+  animatorDoorBase: {fileID: 919434578}
   Key1: 0
   Key2: 0
   Key3: 0

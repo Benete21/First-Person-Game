@@ -87,6 +87,8 @@ public class FirstPersonControls : MonoBehaviour
     public Animator animatorDoor;
     public Animator animatorDoor2;
     public Animator animatorDoorBase;
+    public Animator animatorDoorEnt;
+    public Animator animatorDoorEnt2;
     public bool Key1 = false;
     public bool Key2 = false;
     public bool Key3 = false;
@@ -473,9 +475,8 @@ public class FirstPersonControls : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Door3")) // Check if the object is a door
                 {
-                    // Start moving the door upwards
-                    //StartCoroutine(RaiseDoor(hit.collider.gameObject));
-                    animatorDoorBase.SetBool("isDoorOpen", true);
+                    animatorDoorEnt.SetBool("Entrance_Door_Open", true);
+                    animatorDoorEnt2.SetBool("Entrance_Door_Open2", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
                 }
