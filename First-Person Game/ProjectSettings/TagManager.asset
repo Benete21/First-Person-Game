@@ -16,6 +16,7 @@ TagManager:
   - Door3
   - Safe
   - Dialogue
+  - NPC
   layers:
   - Default
   - TransparentFX
