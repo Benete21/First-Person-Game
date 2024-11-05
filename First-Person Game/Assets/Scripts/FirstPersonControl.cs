@@ -77,6 +77,7 @@ public class FirstPersonControls : MonoBehaviour
    // private float healAmount = 0.5f;// Fill the health bar by this amount
     public DialogueManager dialogueManager;
     public Dialogue dialogue;
+    public DialogueTrigger trigger;
 
 
     [Header("INTERACT SETTINGS")]
@@ -346,6 +347,12 @@ public class FirstPersonControls : MonoBehaviour
                 pickUpText.gameObject.SetActive(true);
                 pickUpText.text = hit.collider.gameObject.name;
             }
+            else if (hit.collider.CompareTag("NPC"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
             else
             {
                 // Hide the pick-up text if not looking at a "PickUp" object
@@ -434,13 +441,7 @@ public class FirstPersonControls : MonoBehaviour
     {
             if (heldObject != null)
             {
-                Destroy(heldObject); // destroys the held item on the scene
-                GameObject inventItem = Instantiate(InventoryItem, ItemContent); // puts the held item that was in the hand into the inventory
-                itemName = inventItem.transform.Find("ItemName").GetComponent<Text>(); // this is so the data in the iteminfo can be assigned to the same in the inventory UI
-                itemDesc = inventItem.transform.Find("ItemDesc").GetComponent<Text>();
-
-                itemName.text = iteminfo.getName();
-                itemDesc.text = iteminfo.getDescription();
+                
             }
     }
     public void Interact()
@@ -451,7 +452,11 @@ public class FirstPersonControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
-            if (Key1 == true)
+            if (hit.collider.CompareTag("NPC"))
+            {
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if (Key1 == true)
             {
                 if (hit.collider.CompareTag("Door1")) // Check if the object is a door
                 {
@@ -471,16 +476,16 @@ public class FirstPersonControls : MonoBehaviour
 
                 }
             }
-            //else if (Key3 == true)
-            //{
-                else if (hit.collider.CompareTag("Door3")) // Check if the object is a door
+            else if (Key3 == true)
+            {
+                if (hit.collider.CompareTag("Door3")) // Check if the object is a door
                 {
                     animatorDoorEnt.SetBool("Entrance_Door_Open", true);
                     animatorDoorEnt2.SetBool("Entrance_Door_Open2", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
                 }
-           // }
+            }
 
         }
     }
