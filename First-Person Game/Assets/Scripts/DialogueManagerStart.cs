@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManagerStart : MonoBehaviour
 {
+
     public TextMeshProUGUI dialogueText;
-    public Animator animator;
     private Queue<string> sentences;
 
     void Start()
@@ -15,20 +14,18 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void FirstSceneStartDialogue(DialogueStarting dialogueStarting)
     {
-        animator.SetBool("Display", true);
-
-
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in dialogueStarting.startingSentences)
         {
             sentences.Enqueue(sentence);
         }
 
         DisplayNextSentence();
     }
+
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
@@ -51,10 +48,10 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
     }
-
     void EndDialogue()
     {
-        animator.SetBool("Display", false);
+
     }
 
 }
+
