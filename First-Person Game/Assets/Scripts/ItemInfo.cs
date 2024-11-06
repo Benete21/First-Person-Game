@@ -1,17 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
 
-[System.Serializable]
-public class ItemInfo
+public class ItemInfo : ScriptableObject
 { 
-    public string names;
-    [TextArea(3, 10)]
-    public string[] itemNames;
-
-    public string description;
-    [TextArea(3, 10)]
-    public string[] itemDesc;
-
+    public int id;
+    public string itemName;
+    public string itemDescription;
 }

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de4f800261e5c6f47aafa474e195e8ce, type: 3}
-  m_Name: Clue2
+  m_Name: Speedpoint
   m_EditorClassIdentifier: 
-  names: Cup (Clue 2)
-  icon: {fileID: 0}
-  description: There is number written on bottom (87)
+  id: 0
+  itemName: Speedpoint
+  itemDescription: Used for card transactions

@@ -40593,7 +40593,7 @@ Transform:
   m_GameObject: {fileID: 1083517932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.08, y: -2.04, z: 3.3}
+  m_LocalPosition: {x: 3.08, y: -2.9, z: 3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -66824,6 +66824,8 @@ GameObject:
   - component: {fileID: 543450653533197697}
   - component: {fileID: 175223404}
   - component: {fileID: 175223407}
+  - component: {fileID: 919132149330513724}
+  - component: {fileID: 919132149330513725}
   m_Layer: 0
   m_Name: 'Speedpoint '
   m_TagString: PickUp
@@ -66831,6 +66833,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132149330513724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149330513723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ed8e2b13c0745428995d49a9e6d992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInformation: {fileID: 11400000, guid: 99e5ca3591d292b4c940ff6f39cf7a78, type: 2}
+--- !u!114 &919132149330513725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149330513723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86ffee1060eb934c810b05c8701ef57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemInfo: {fileID: 11400000, guid: 99e5ca3591d292b4c940ff6f39cf7a78, type: 2}
 --- !u!1 &921391925299196332
 GameObject:
   m_ObjectHideFlags: 0
@@ -77116,7 +77144,7 @@ Transform:
   m_GameObject: {fileID: 1455270562225635631}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0133472765, y: 0.7109051, z: -0.7029738, w: -0.016240591}
-  m_LocalPosition: {x: 8.91, y: 2.68, z: 9.46}
+  m_LocalPosition: {x: 8.91, y: 2.03, z: 9.45}
   m_LocalScale: {x: 41.39505, y: 41.395046, z: 41.39505}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77807,6 +77835,7 @@ GameObject:
   - component: {fileID: 8011130825013019088}
   - component: {fileID: 8011130825013019087}
   - component: {fileID: 8011130825013019086}
+  - component: {fileID: 8011130825013019090}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -77869,6 +77898,7 @@ MonoBehaviour:
   animChara: {fileID: 2032069907914756544}
   holdPosition: {fileID: 1558814761}
   pickUpRange: 6
+  itemPickUp: {fileID: 0}
   crouchHeight: 1
   standingHeight: 2
   crouchSpeed: 1.5
@@ -77890,11 +77920,7 @@ MonoBehaviour:
   InventoryItem: {fileID: 6743549055672300149, guid: 0b16f8d37e88c524aba426da811a86c6,
     type: 3}
   items: []
-  iteminfo:
-    names: 
-    itemNames: []
-    description: 
-    itemDesc: []
+  iteminfo: {fileID: 0}
   pickUpText: {fileID: 1658870866}
   dialogueManager: {fileID: 0}
   dialogue:
@@ -77939,6 +77965,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0.5, y: 37.2, z: 0}
+--- !u!114 &8011130825013019090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011130825013019085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc69688655944c04cb66feda282b8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8022602955445703375
 GameObject:
   m_ObjectHideFlags: 0

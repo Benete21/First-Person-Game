@@ -34,6 +34,7 @@ public class FirstPersonControls : MonoBehaviour
     private GameObject heldObject; // Reference to the currently held object
     public float pickUpRange = 6f; // Range within which objects can be picked up
     //private bool holdingGun = false;
+    public ItemPickUp itemPickUp;
 
     [Header("CROUCH SETTINGS")]
     [Space(5)]
@@ -445,7 +446,7 @@ public class FirstPersonControls : MonoBehaviour
     {
             if (heldObject != null)
             {
-                
+                itemPickUp.PutInInventory();
             }
     }
     public void Interact()
