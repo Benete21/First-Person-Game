@@ -78,7 +78,8 @@ public class FirstPersonControls : MonoBehaviour
     public DialogueManager dialogueManager;
     public Dialogue dialogue;
     public DialogueTrigger trigger;
-
+    public GameObject FlashlightLight;
+    private bool FlashlightActive = false;
 
     [Header("INTERACT SETTINGS")]
     [Space(5)]
@@ -135,8 +136,11 @@ public class FirstPersonControls : MonoBehaviour
         // Subscribe to the interact input event
         playerInput.Player.Interact.performed += ctx => Interact(); // Interact with switch
 
-                // Subscribe to the interact input event
+        // Subscribe to the interact input event
         playerInput.Player.DialogueNext.performed += ctx => DialogueNext(); // Interact to go to the next dialogue option
+
+        // Subscribe to the interact input event
+        playerInput.Player.FlashLight.performed += ctx => FlashLight(); // Interact to go to the next dialogue option
     }
     private void Update()
     {
@@ -506,6 +510,19 @@ public class FirstPersonControls : MonoBehaviour
     private void DialogueNext()
     {
         FindObjectOfType<DialogueManager>().DisplayNextSentence();
+    }
+    public void FlashLight()
+    {
+        if (FlashlightActive == false)
+        {
+            FlashlightLight.gameObject.SetActive(true);
+            FlashlightActive = true;
+        }
+        else
+        { 
+        FlashlightLight.gameObject.SetActive(false);
+        FlashlightActive = false;
+        }
     }
 }
 

@@ -24364,7 +24364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &500914992
 Transform:
   m_ObjectHideFlags: 0
@@ -24415,10 +24415,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 16.12
-  m_Range: 23
-  m_SpotAngle: 73.58327
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 76.87
+  m_Range: 115.6
+  m_SpotAngle: 55.90425
+  m_InnerSpotAngle: 4.12306
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -77901,6 +77901,7 @@ MonoBehaviour:
     dialogueDiscription: 
     sentences: []
   trigger: {fileID: 0}
+  FlashlightLight: {fileID: 500914991}
   isDoorOpen: 0
   openRotation: {x: 0, y: 0, z: 0, w: 0}
   closedRotation: {x: 0, y: 0, z: 0, w: 0}

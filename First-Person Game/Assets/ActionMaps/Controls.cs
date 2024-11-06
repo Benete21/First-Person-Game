@@ -116,6 +116,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FlashLight"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d4cef93-c97a-4141-b177-c458b2c1c6a3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -385,17 +394,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a26969fe-ca94-42a8-a09b-261c60c3378f"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""PutInInventory"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""8a10ff85-a444-491c-9a3c-8391ae4a5df0"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -435,6 +433,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""DialogueNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a26969fe-ca94-42a8-a09b-261c60c3378f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""820164b9-e5ff-417c-8e47-2bace9fd18d9"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""FlashLight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -478,6 +498,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_PutInInventory = m_Player.FindAction("PutInInventory", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_DialogueNext = m_Player.FindAction("DialogueNext", throwIfNotFound: true);
+        m_Player_FlashLight = m_Player.FindAction("FlashLight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -549,6 +570,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PutInInventory;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_DialogueNext;
+    private readonly InputAction m_Player_FlashLight;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -563,6 +585,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @PutInInventory => m_Wrapper.m_Player_PutInInventory;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @DialogueNext => m_Wrapper.m_Player_DialogueNext;
+        public InputAction @FlashLight => m_Wrapper.m_Player_FlashLight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -602,6 +625,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @DialogueNext.started += instance.OnDialogueNext;
             @DialogueNext.performed += instance.OnDialogueNext;
             @DialogueNext.canceled += instance.OnDialogueNext;
+            @FlashLight.started += instance.OnFlashLight;
+            @FlashLight.performed += instance.OnFlashLight;
+            @FlashLight.canceled += instance.OnFlashLight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -636,6 +662,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @DialogueNext.started -= instance.OnDialogueNext;
             @DialogueNext.performed -= instance.OnDialogueNext;
             @DialogueNext.canceled -= instance.OnDialogueNext;
+            @FlashLight.started -= instance.OnFlashLight;
+            @FlashLight.performed -= instance.OnFlashLight;
+            @FlashLight.canceled -= instance.OnFlashLight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -683,5 +712,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnPutInInventory(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDialogueNext(InputAction.CallbackContext context);
+        void OnFlashLight(InputAction.CallbackContext context);
     }
 }

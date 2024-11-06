@@ -613,7 +613,6 @@ GameObject:
   - component: {fileID: 1449531800}
   - component: {fileID: 1449531799}
   - component: {fileID: 1449531798}
-  - component: {fileID: 1449531802}
   - component: {fileID: 1449531801}
   m_Layer: 5
   m_Name: Button
@@ -686,7 +685,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1449531802}
+      - m_Target: {fileID: 1449531801}
         m_TargetAssemblyTypeName: DialogueTriggerStartingScene, Assembly-CSharp
         m_MethodName: TriggerStartingDialogue
         m_Mode: 1
@@ -745,26 +744,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1449531795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf8d4eba5d072ef47b6e4cb655189a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingDialogueDiscription: Report
-  startingSentences:
-  - Hello
-  - Help
-  - Pls
---- !u!114 &1449531802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449531795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42b479897ed647b40bcc266d4ee472cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueStarting:
+    startingDialogueDiscription: Report
+    startingSentences:
+    - hello
+    - help
+    - pls
 --- !u!1 &1504418817
 GameObject:
   m_ObjectHideFlags: 0
