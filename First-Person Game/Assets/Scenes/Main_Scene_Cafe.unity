@@ -6875,7 +6875,7 @@ GameObject:
   - component: {fileID: 198572269}
   - component: {fileID: 198572268}
   m_Layer: 5
-  m_Name: To_Do_Text
+  m_Name: Inventory_Item_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6888,16 +6888,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198572266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00005859376}
+  m_LocalScale: {x: 1.7233765, y: 0.88430154, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1002064575}
+  m_Father: {fileID: 955142534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.2}
+  m_AnchoredPosition: {x: -299.0001, y: 84.02315}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198572268
@@ -6929,8 +6929,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7727,7 +7727,7 @@ GameObject:
   - component: {fileID: 300426222}
   - component: {fileID: 300426221}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Poster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13155,7 +13155,7 @@ GameObject:
   - component: {fileID: 341795623}
   - component: {fileID: 341795622}
   - component: {fileID: 341795621}
-  - component: {fileID: 341795620}
+  - component: {fileID: 341795625}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -13163,24 +13163,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &341795620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341795619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de319077d44b0e44188b9f501a09b615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueDiscription: NPC
-    sentences:
-    - I found a way to open the door go in and check for any evidence
-  player: {fileID: 8011130825013019085}
-  playerCollider: {fileID: 8011130825013019089}
 --- !u!65 &341795621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13267,6 +13249,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &341795625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341795619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b479897ed647b40bcc266d4ee472cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStarting:
+    startingDialogueDiscription: NPC
+    startingSentences:
+    - I found a way to open the door go in and check for any evidence
 --- !u!1 &344356436
 GameObject:
   m_ObjectHideFlags: 0
@@ -39613,7 +39611,7 @@ RectTransform:
   m_Children:
   - {fileID: 831912316}
   - {fileID: 1658870865}
-  - {fileID: 1002064575}
+  - {fileID: 198572267}
   - {fileID: 2057751687}
   m_Father: {fileID: 376791039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39837,82 +39835,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 992657010936709677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1002064574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1002064575}
-  - component: {fileID: 1002064577}
-  - component: {fileID: 1002064576}
-  m_Layer: 5
-  m_Name: To_Do_List
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1002064575
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002064574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7233766, y: 0.8843015, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 198572267}
-  m_Father: {fileID: 955142534}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -299, y: 92}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1002064576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002064574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1002064577
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002064574}
-  m_CullTransparentMesh: 1
 --- !u!1 &1014436947
 GameObject:
   m_ObjectHideFlags: 0
@@ -77836,6 +77758,7 @@ GameObject:
   - component: {fileID: 8011130825013019087}
   - component: {fileID: 8011130825013019086}
   - component: {fileID: 8011130825013019090}
+  - component: {fileID: 8011130825013019091}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -77919,7 +77842,7 @@ MonoBehaviour:
   ItemContent: {fileID: 1381976135}
   InventoryItem: {fileID: 6743549055672300149, guid: 0b16f8d37e88c524aba426da811a86c6,
     type: 3}
-  HeldIteminventory: {fileID: 0}
+  HeldIteminventory: {fileID: 198572266}
   items:
   - {fileID: 11400000, guid: 99e5ca3591d292b4c940ff6f39cf7a78, type: 2}
   - {fileID: 11400000, guid: 378a9a1cd38a2a04ca78e2bca1abfcc9, type: 2}
@@ -77927,6 +77850,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ItemInfo: {fileID: 0}
+  InventoryItemText: {fileID: 198572268}
   pickUpText: {fileID: 1658870866}
   dialogueManager: {fileID: 0}
   dialogue:
@@ -77984,6 +77908,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items: []
+--- !u!114 &8011130825013019091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011130825013019085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3466e08e4fe1e8247bc969740111caf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 475178582}
 --- !u!1 &8022602955445703375
 GameObject:
   m_ObjectHideFlags: 0

@@ -281,7 +281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 109}
+  m_AnchoredPosition: {x: -217, y: 109}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112348550
@@ -306,8 +306,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Detective''s Logs: The Cafe'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1a249b5089d91e047bcfe19a84193329, type: 2}
-  m_sharedMaterial: {fileID: 5669933251370982665, guid: 1a249b5089d91e047bcfe19a84193329,
+  m_fontAsset: {fileID: 11400000, guid: 82675fb9c8d71b04cb63cfac97758cc9, type: 2}
+  m_sharedMaterial: {fileID: -4455846691410612829, guid: 82675fb9c8d71b04cb63cfac97758cc9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -332,13 +332,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48.1
+  m_fontSizeBase: 48.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -348.35947, w: 0}
+  m_margin: {x: -28.74414, y: 0, z: -472.31833, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -530,8 +530,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1a249b5089d91e047bcfe19a84193329, type: 2}
-  m_sharedMaterial: {fileID: 5669933251370982665, guid: 1a249b5089d91e047bcfe19a84193329,
+  m_fontAsset: {fileID: 11400000, guid: 82675fb9c8d71b04cb63cfac97758cc9, type: 2}
+  m_sharedMaterial: {fileID: -4455846691410612829, guid: 82675fb9c8d71b04cb63cfac97758cc9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -592,10 +592,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -34.382202, w: 0}
+  m_margin: {x: 0, y: 0, z: -65.109375, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &340352020
@@ -1102,7 +1102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87, y: -110}
+  m_AnchoredPosition: {x: -77, y: -110}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &873686333
@@ -1432,8 +1432,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1a249b5089d91e047bcfe19a84193329, type: 2}
-  m_sharedMaterial: {fileID: 5669933251370982665, guid: 1a249b5089d91e047bcfe19a84193329,
+  m_fontAsset: {fileID: 11400000, guid: 82675fb9c8d71b04cb63cfac97758cc9, type: 2}
+  m_sharedMaterial: {fileID: -4455846691410612829, guid: 82675fb9c8d71b04cb63cfac97758cc9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -34.92859, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1004333355
@@ -1638,7 +1638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88, y: 7}
+  m_AnchoredPosition: {x: -78, y: 18}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1855478395
