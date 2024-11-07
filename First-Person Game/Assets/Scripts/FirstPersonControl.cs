@@ -63,9 +63,10 @@ public class FirstPersonControls : MonoBehaviour
     private bool canvaActive = false;
     public Transform ItemContent;
     public GameObject InventoryItem;
+    public GameObject HeldIteminventory;
 
     public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
-    public ItemInfo iteminfo;
+    public ItemInfo ItemInfo;
 
     private Text itemName;
     private Text itemDesc;
@@ -446,7 +447,12 @@ public class FirstPersonControls : MonoBehaviour
     {
             if (heldObject != null)
             {
-                itemPickUp.PutInInventory();
+                //itemPickUp.PutInInventory();
+                HeldIteminventory = heldObject;
+                if (heldObject.CompareTag("PickUp"))
+                {
+                Debug.Log("Help");
+                }
             }
     }
     public void Interact()

@@ -77919,8 +77919,14 @@ MonoBehaviour:
   ItemContent: {fileID: 1381976135}
   InventoryItem: {fileID: 6743549055672300149, guid: 0b16f8d37e88c524aba426da811a86c6,
     type: 3}
-  items: []
-  iteminfo: {fileID: 0}
+  HeldIteminventory: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: 99e5ca3591d292b4c940ff6f39cf7a78, type: 2}
+  - {fileID: 11400000, guid: 378a9a1cd38a2a04ca78e2bca1abfcc9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ItemInfo: {fileID: 0}
   pickUpText: {fileID: 1658870866}
   dialogueManager: {fileID: 0}
   dialogue:
@@ -77977,10 +77983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc69688655944c04cb66feda282b8fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Items: []
 --- !u!1 &8022602955445703375
 GameObject:
   m_ObjectHideFlags: 0
