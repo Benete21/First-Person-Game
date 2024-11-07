@@ -67,6 +67,7 @@ public class FirstPersonControls : MonoBehaviour
 
     public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
     public ItemInfo ItemInfo;
+    public TextMeshProUGUI InventoryItemText;
 
     private Text itemName;
     private Text itemDesc;
@@ -80,6 +81,7 @@ public class FirstPersonControls : MonoBehaviour
     public DialogueManager dialogueManager;
     public Dialogue dialogue;
     public DialogueTrigger trigger;
+    DialogueTriggerStartingScene dialogueNPC;
     public GameObject FlashlightLight;
     private bool FlashlightActive = false;
 
@@ -451,7 +453,9 @@ public class FirstPersonControls : MonoBehaviour
                 HeldIteminventory = heldObject;
                 if (heldObject.CompareTag("PickUp"))
                 {
-                Debug.Log("Help");
+                    Debug.Log("Help");
+                    InventoryItemText.gameObject.SetActive(true);
+                    InventoryItemText.text = HeldIteminventory.gameObject.name + " information found";
                 }
             }
     }
@@ -497,6 +501,11 @@ public class FirstPersonControls : MonoBehaviour
                     doorAudio.Play();
                 }
             }
+            else if (hit.collider.CompareTag("NPC")) // Check if the object is a NPC
+                {
+                    dialogueNPC.TriggerStartingDialogue();
+                }
+            
 
         }
     }
