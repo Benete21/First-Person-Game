@@ -81,7 +81,7 @@ public class FirstPersonControls : MonoBehaviour
     public DialogueManager dialogueManager;
     public Dialogue dialogue;
     public DialogueTrigger trigger;
-    DialogueTriggerStartingScene dialogueNPC;
+    public DialogueStarting dialogueNPC;
     public GameObject FlashlightLight;
     private bool FlashlightActive = false;
 
@@ -449,13 +449,13 @@ public class FirstPersonControls : MonoBehaviour
     {
             if (heldObject != null)
             {
-                //itemPickUp.PutInInventory();
                 HeldIteminventory = heldObject;
                 if (heldObject.CompareTag("PickUp"))
                 {
                     Debug.Log("Help");
                     InventoryItemText.gameObject.SetActive(true);
                     InventoryItemText.text = HeldIteminventory.gameObject.name + " information found";
+                    
                 }
             }
     }
@@ -467,11 +467,7 @@ public class FirstPersonControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
-            if (hit.collider.CompareTag("NPC"))
-            {
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            }
-            else if (Key1 == true)
+            if (Key1 == true)
             {
                 if (hit.collider.CompareTag("Door1")) // Check if the object is a door
                 {
@@ -502,9 +498,9 @@ public class FirstPersonControls : MonoBehaviour
                 }
             }
             else if (hit.collider.CompareTag("NPC")) // Check if the object is a NPC
-                {
-                    dialogueNPC.TriggerStartingDialogue();
-                }
+            {
+                FindObjectOfType<DialogueManagerStart>().FirstSceneStartDialogue(dialogueNPC);
+            }
             
 
         }
