@@ -66,8 +66,8 @@ public class FirstPersonControls : MonoBehaviour
     public GameObject HeldIteminventory;
 
 
-    public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
-    public ItemInfo ItemInfo;
+    //public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
+    //public ItemInfo ItemInfo;
     public TextMeshProUGUI InventoryItemTextNotice; // Inventory text when an items evidence has been recorded
     public TextMeshProUGUI InventoryText;
     InventoryInfo inventoryInfo;
@@ -81,12 +81,13 @@ public class FirstPersonControls : MonoBehaviour
    // public Image healthBar;
    // public float damageAmount = 0.25f; // Reduce the health bar by this amount
    // private float healAmount = 0.5f;// Fill the health bar by this amount
-    public DialogueManager dialogueManager;
-    public Dialogue dialogue;
+   // public DialogueManager dialogueManager;
+   // public Dialogue dialogue;
     public DialogueTrigger trigger;
     public DialogueStarting dialogueNPC;
     public GameObject FlashlightLight;
     private bool FlashlightActive = false;
+    public InventoryInfo [] InventoryInfo;
 
     [Header("INTERACT SETTINGS")]
     [Space(5)]
@@ -457,12 +458,12 @@ public class FirstPersonControls : MonoBehaviour
                 {
                     InventoryItemTextNotice.gameObject.SetActive(true);
                     InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found";
+                    inventoryInfo = heldObject.GetComponent<InventoryInfo>();
+                    InventoryText.text = inventoryInfo.InventoryDescrip;
                 }
             }
-        if (inventoryInfo.inventoryName == "Speedpoint")
-        {
-            Debug.Log("found");
-        }
+
+        
     }
     public void Interact()
     {
