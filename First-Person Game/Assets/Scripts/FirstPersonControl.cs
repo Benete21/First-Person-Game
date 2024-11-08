@@ -65,9 +65,12 @@ public class FirstPersonControls : MonoBehaviour
     public GameObject InventoryItem;
     public GameObject HeldIteminventory;
 
+
     public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
     public ItemInfo ItemInfo;
-    public TextMeshProUGUI InventoryItemText;
+    public TextMeshProUGUI InventoryItemTextNotice; // Inventory text when an items evidence has been recorded
+    public TextMeshProUGUI InventoryText;
+    InventoryInfo inventoryInfo;
 
     private Text itemName;
     private Text itemDesc;
@@ -452,12 +455,14 @@ public class FirstPersonControls : MonoBehaviour
                 HeldIteminventory = heldObject;
                 if (heldObject.CompareTag("PickUp"))
                 {
-                    Debug.Log("Help");
-                    InventoryItemText.gameObject.SetActive(true);
-                    InventoryItemText.text = HeldIteminventory.gameObject.name + " information found";
-                    
+                    InventoryItemTextNotice.gameObject.SetActive(true);
+                    InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found";
                 }
             }
+        if (inventoryInfo.inventoryName == "Speedpoint")
+        {
+            Debug.Log("found");
+        }
     }
     public void Interact()
     {
