@@ -456,14 +456,21 @@ public class FirstPersonControls : MonoBehaviour
                 HeldIteminventory = heldObject;
                 if (heldObject.CompareTag("PickUp"))
                 {
-                    InventoryItemTextNotice.gameObject.SetActive(true);
-                    InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found";
+                    StartCoroutine(HideInventoryText(InventoryItemTextNotice.text));
+                    //InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found";
                     inventoryInfo = heldObject.GetComponent<InventoryInfo>();
                     InventoryText.text = inventoryInfo.InventoryDescrip;
                 }
-            }
+            }    
+    }
+    private IEnumerator HideInventoryText(string message)
+    {
+        InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found"; ; // Set the message
+        InventoryItemTextNotice.gameObject.SetActive(true); // Show the text
 
-        
+        yield return new WaitForSeconds(3); // Wait for 3 seconds
+
+        InventoryItemTextNotice.gameObject.SetActive(false); // Hide the text
     }
     public void Interact()
     {
