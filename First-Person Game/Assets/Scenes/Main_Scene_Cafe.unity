@@ -79800,6 +79800,8 @@ MonoBehaviour:
     - I found a way to open the door go in and check for any evidence
   FlashlightLight: {fileID: 500914991}
   InventoryInfo: []
+  isSceneEnd: 0
+  endSceneCount: 0
   isDoorOpen: 0
   openRotation: {x: 0, y: 0, z: 0, w: 0}
   closedRotation: {x: 0, y: 0, z: 0, w: 0}

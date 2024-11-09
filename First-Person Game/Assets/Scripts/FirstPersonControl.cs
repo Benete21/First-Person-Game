@@ -10,6 +10,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine.UIElements.Experimental;
 using System.Drawing;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class FirstPersonControls : MonoBehaviour
 {
     [Header("MOVEMENT SETTINGS")]
@@ -88,6 +89,7 @@ public class FirstPersonControls : MonoBehaviour
     public GameObject FlashlightLight;
     private bool FlashlightActive = false;
     public InventoryInfo [] InventoryInfo;
+    public int endSceneCount = 0;
 
     [Header("INTERACT SETTINGS")]
     [Space(5)]
@@ -133,7 +135,7 @@ public class FirstPersonControls : MonoBehaviour
         playerInput.Player.Crouch.performed += ctx => ToggleCrouch(); //Call the toggleCrouch method when crouch input is perfromed
 
         // Subscribe to the hiddenItemsearch event
-        playerInput.Player.SearchHiddenItems.performed += ctx => SearchHidden(); //Call the SearchHidden method when hiddenItemSearch input is performed
+        //playerInput.Player.SearchHiddenItems.performed += ctx => SearchHidden(); //Call the SearchHidden method when hiddenItemSearch input is performed
 
         // Subscribe to the inventory event
         playerInput.Player.ToggleInventory.performed += ctx => ToggleInventory(); //Call the ToggleInventory method when inventory input is performed
@@ -156,7 +158,9 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
-        CheckForPickUp();  
+        CheckForPickUp();
+        if (endSceneCount == 11)
+            EndScreen();
     }
     public void Move()
     {
@@ -392,7 +396,7 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
-    public void SearchHidden()
+    /*public void SearchHidden()
     {
         Ray ray = new Ray(playerCamera.position, playerCamera.forward);
         RaycastHit hit;
@@ -427,7 +431,7 @@ public class FirstPersonControls : MonoBehaviour
                         Destroy(clue1, 7f);
                         Destroy(clue2, 7f);
                         Destroy(clue3, 7f);
-                    }*/
+                    }
                 }
             // }
         }
@@ -435,7 +439,7 @@ public class FirstPersonControls : MonoBehaviour
         {
             Debug.Log("not close to item");
         }
-    }
+    }*/
     public void ToggleInventory() // toggles the inventory 
     {
         if (canvaActive)
@@ -463,36 +467,47 @@ public class FirstPersonControls : MonoBehaviour
                 {
                     case 0:
                         InventoryText[0].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 1:
                         InventoryText[1].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 2:
                         InventoryText[2].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 3:
                         InventoryText[3].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 4:
                         InventoryText[4].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 5:
                         InventoryText[5].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 6:
                         InventoryText[6].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 7:
                         InventoryText[7].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 8:
                         InventoryText[8].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 9:
                         InventoryText[9].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     case 10:
                         InventoryText[10].text = inventoryInfo.InventoryDescrip;
+                        endSceneCount += 1;
                         break;
                     default:
                         break;
@@ -586,6 +601,10 @@ public class FirstPersonControls : MonoBehaviour
         FlashlightLight.gameObject.SetActive(false);
         FlashlightActive = false;
         }
+    }
+    public void EndScreen()
+    {
+            SceneManager.LoadScene("End_Scene");
     }
 }
 
