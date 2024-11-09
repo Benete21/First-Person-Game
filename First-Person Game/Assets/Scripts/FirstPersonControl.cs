@@ -69,7 +69,7 @@ public class FirstPersonControls : MonoBehaviour
     //public List<ItemInfo> items = new List<ItemInfo>(); // list to help track all the itmes information
     //public ItemInfo ItemInfo;
     public TextMeshProUGUI InventoryItemTextNotice; // Inventory text when an items evidence has been recorded
-    public TextMeshProUGUI InventoryText;
+    public TextMeshProUGUI [] InventoryText;
     InventoryInfo inventoryInfo;
 
     private Text itemName;
@@ -459,7 +459,45 @@ public class FirstPersonControls : MonoBehaviour
                     StartCoroutine(HideInventoryText(InventoryItemTextNotice.text));
                     //InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found";
                     inventoryInfo = heldObject.GetComponent<InventoryInfo>();
-                    InventoryText.text = inventoryInfo.InventoryDescrip;
+                switch (inventoryInfo.inventoryType)
+                {
+                    case 0:
+                        InventoryText[0].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 1:
+                        InventoryText[1].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 2:
+                        InventoryText[2].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 3:
+                        InventoryText[3].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 4:
+                        InventoryText[4].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 5:
+                        InventoryText[5].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 6:
+                        InventoryText[6].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 7:
+                        InventoryText[7].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 8:
+                        InventoryText[8].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 9:
+                        InventoryText[9].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    case 10:
+                        InventoryText[10].text = inventoryInfo.InventoryDescrip;
+                        break;
+                    default:
+                        break;
+
+                }
                 }
             }    
     }
