@@ -8617,7 +8617,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0362a4d950bb7b14981d3b16a977d0fb,
         type: 3}
       propertyPath: m_Name
-      value: Merry
+      value: Merry (Assistant)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0362a4d950bb7b14981d3b16a977d0fb,
         type: 3}
@@ -27554,6 +27554,79 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 251112575165242202, guid: aca7d0b0a49a53147bafe5708b7108af, type: 3}
+--- !u!1 &537370516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537370519}
+  - component: {fileID: 537370518}
+  - component: {fileID: 537370517}
+  m_Layer: 0
+  m_Name: Evidence_Dialogue (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &537370517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537370516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de319077d44b0e44188b9f501a09b615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueDiscription: Evidence
+    sentences:
+    - Ok I got in
+    - I need to see if the gun is stored anywhere in this shop
+  player: {fileID: 8011130825013019085}
+  playerCollider: {fileID: 8011130825013019089}
+--- !u!65 &537370518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537370516}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.9122543, y: 6.7927704, z: 12.559921}
+  m_Center: {x: -3.4561272, y: 0.81902075, z: 5.7799606}
+--- !u!4 &537370519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537370516}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -119, y: 1.14, z: 143.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543435812 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6569710911100203790, guid: 01c02f414855ae844972db82e448c78c,
@@ -37255,8 +37328,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 23.17498, y: 7.988324, z: 14.243607}
-  m_Center: {x: 20.343288, y: 0.0063700676, z: -7.58712}
+  m_Size: {x: 23.17498, y: 7.988324, z: 2.327896}
+  m_Center: {x: 20.343288, y: 0.0063700676, z: -1.6292648}
 --- !u!4 &875222744
 Transform:
   m_ObjectHideFlags: 0
@@ -45036,7 +45109,7 @@ MonoBehaviour:
     dialogueDiscription: Evidence
     sentences:
     - Ok I got in
-    - now I need to find some evidence
+    - I need to see if the gun is stored anywhere in this shop
   player: {fileID: 8011130825013019085}
   playerCollider: {fileID: 8011130825013019089}
 --- !u!65 &1034505447
@@ -58048,7 +58121,7 @@ MonoBehaviour:
     dialogueDiscription: entrance
     sentences:
     - There shouldnt be anything outside.
-    - 'But as a real detective why wouldn''t i check '
+    - 'But as a real detective why wouldn''t I check '
   player: {fileID: 8011130825013019085}
   playerCollider: {fileID: 8011130825013019089}
 --- !u!65 &1682532548
@@ -70336,6 +70409,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5418326013545080096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1891644044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891644047}
+  - component: {fileID: 1891644046}
+  - component: {fileID: 1891644045}
+  m_Layer: 0
+  m_Name: Meryy dialogue
+  m_TagString: Hidden
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1891644045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891644044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de319077d44b0e44188b9f501a09b615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueDiscription: Basement_Dialogue
+    sentences:
+    - 'Detective '
+  player: {fileID: 8011130825013019085}
+  playerCollider: {fileID: 8011130825013019089}
+--- !u!65 &1891644046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891644044}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.17498, y: 7.988324, z: 2.327896}
+  m_Center: {x: 20.343288, y: 0.0063700676, z: -1.6292648}
+--- !u!4 &1891644047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891644044}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -161.8, y: 3.8, z: 154.3}
+  m_LocalScale: {x: 1, y: 1, z: 3.0607}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1902545141 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a07dfbf1b507bd04385f7f669b284d98,
@@ -71114,9 +71259,7 @@ MonoBehaviour:
   dialogue:
     dialogueDiscription: Starting_Dialogue
     sentences:
-    - Ok, I got through the back door.
-    - I need to find the Key.
-    - Hopefully that stupid Employee left it out here
+    - I should ask Merry On what to do
   player: {fileID: 8011130825013019085}
   playerCollider: {fileID: 8011130825013019089}
 --- !u!65 &1981563099
@@ -90821,7 +90964,6 @@ SceneRoots:
   - {fileID: 1091571900}
   - {fileID: 1963220533}
   - {fileID: 307682957}
-  - {fileID: 1981563100}
   - {fileID: 887169025}
   - {fileID: 575074259}
   - {fileID: 136669206}
@@ -90830,11 +90972,14 @@ SceneRoots:
   - {fileID: 543450651704541852}
   - {fileID: 543450651679548902}
   - {fileID: 543450653720706117}
+  - {fileID: 1981563100}
   - {fileID: 1682532549}
   - {fileID: 1495486159}
   - {fileID: 1034505445}
+  - {fileID: 537370519}
   - {fileID: 164368667}
   - {fileID: 875222744}
+  - {fileID: 1891644047}
   - {fileID: 521996597}
   - {fileID: 300426224}
   - {fileID: 341795624}
