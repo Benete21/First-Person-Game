@@ -101,6 +101,7 @@ public class FirstPersonControls : MonoBehaviour
     public Animator animatorDoorBase;
     public Animator animatorDoorEnt;
     public Animator animatorDoorEnt2;
+    public Animator animatorStaffRoom;
     public bool Key1 = false;
     public bool Key2 = false;
     public bool Key3 = false;
@@ -327,7 +328,7 @@ public class FirstPersonControls : MonoBehaviour
                 pickUpText.gameObject.SetActive(true);
                 pickUpText.text = hit.collider.gameObject.name;
             }
-            else if(hit.collider.CompareTag("Key1"))
+            else if (hit.collider.CompareTag("Key1"))
             {
                 // Display the pick-up text
                 pickUpText.gameObject.SetActive(true);
@@ -358,6 +359,12 @@ public class FirstPersonControls : MonoBehaviour
                 pickUpText.text = hit.collider.gameObject.name;
             }
             else if (hit.collider.CompareTag("Door3"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
+            else if (hit.collider.CompareTag("Door4"))
             {
                 // Display the pick-up text
                 pickUpText.gameObject.SetActive(true);
@@ -533,7 +540,7 @@ public class FirstPersonControls : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
-            if (Key1 == true)
+             if (Key1 == true)
             {
                 if (hit.collider.CompareTag("Door1")) // Check if the object is a door
                 {
@@ -541,18 +548,19 @@ public class FirstPersonControls : MonoBehaviour
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
                 }
+
             }
-            else if (Key2 == true)
-            {
-                if (hit.collider.CompareTag("Door2")) // Check if the object is a door
-                {                   
+            /*else if (Key2 == true)
+            {*/
+                else if (hit.collider.CompareTag("Door2")) // Check if the object is a door
+                {
                     animatorDoor.SetBool("isDoorOpen", true);
                     animatorDoor2.SetBool("isDoorOpen2", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
 
                 }
-            }
+            //}
             else if (Key3 == true)
             {
                 if (hit.collider.CompareTag("Door3")) // Check if the object is a door
@@ -563,14 +571,24 @@ public class FirstPersonControls : MonoBehaviour
                     doorAudio.Play();
                 }
             }
+            else if (Key2 == true)
+            {
+                if (hit.collider.CompareTag("Door4")) // Check if the object is a door
+                {
+                    animatorStaffRoom.SetBool("isDoorOpen", true);
+                    AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
+                    doorAudio.Play();
+
+                }
+            }
             else if (hit.collider.CompareTag("NPC")) // Check if the object is a NPC
             {
                 FindObjectOfType<DialogueManagerStart>().FirstSceneStartDialogue(dialogueNPC);
             }
-            
 
         }
-    }
+        }
+    
     private IEnumerator RaiseDoor(GameObject door)
         {
             float raiseAmount = 5f; // The total distance the door will be raised
