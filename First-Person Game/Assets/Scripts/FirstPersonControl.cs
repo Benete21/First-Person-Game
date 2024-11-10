@@ -376,6 +376,12 @@ public class FirstPersonControls : MonoBehaviour
                 pickUpText.gameObject.SetActive(true);
                 pickUpText.text = hit.collider.gameObject.name;
             }
+            else if (hit.collider.CompareTag("Gun"))
+            {
+                // Display the pick-up text
+                pickUpText.gameObject.SetActive(true);
+                pickUpText.text = hit.collider.gameObject.name;
+            }
             else
             {
                 // Hide the pick-up text if not looking at a "PickUp" object
@@ -465,7 +471,7 @@ public class FirstPersonControls : MonoBehaviour
             if (heldObject != null)
             {
                 HeldIteminventory = heldObject;
-                if (heldObject.CompareTag("PickUp"))
+                if (heldObject.CompareTag("PickUp") || heldObject.CompareTag("Key1") || heldObject.CompareTag("Key2") || heldObject.CompareTag("Key3") || heldObject.CompareTag("Gun"))
                 {
                     StartCoroutine(HideInventoryText(InventoryItemTextNotice.text));
                     //InventoryItemTextNotice.text = HeldIteminventory.gameObject.name + " information found";

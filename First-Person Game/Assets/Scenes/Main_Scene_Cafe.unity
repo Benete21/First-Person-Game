@@ -50331,7 +50331,7 @@ GameObject:
   - component: {fileID: 1064216100}
   m_Layer: 0
   m_Name: Note
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81113,7 +81113,7 @@ GameObject:
   - component: {fileID: 919132147961315165}
   m_Layer: 0
   m_Name: Documents
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81261,7 +81261,7 @@ GameObject:
   - component: {fileID: 182248689}
   m_Layer: 0
   m_Name: Documents in Trashcan
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
