@@ -160,7 +160,7 @@ public class FirstPersonControls : MonoBehaviour
         LookAround();
         ApplyGravity();
         CheckForPickUp();
-        if (endSceneCount == 11)
+        if (endSceneCount == 8)
             EndScreen();
     }
     public void Move()
