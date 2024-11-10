@@ -160,7 +160,7 @@ public class FirstPersonControls : MonoBehaviour
         LookAround();
         ApplyGravity();
         CheckForPickUp();
-        if (endSceneCount == 8)
+        if (endSceneCount == 1)
             EndScreen();
     }
     public void Move()
@@ -480,7 +480,7 @@ public class FirstPersonControls : MonoBehaviour
                 {
                     case 0:
                         InventoryText[0].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 1:
                         InventoryText[1].text = inventoryInfo.InventoryDescrip;
@@ -488,39 +488,39 @@ public class FirstPersonControls : MonoBehaviour
                         break;
                     case 2:
                         InventoryText[2].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 3:
                         InventoryText[3].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 4:
                         InventoryText[4].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 5:
                         InventoryText[5].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 6:
                         InventoryText[6].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 7:
                         InventoryText[7].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 8:
                         InventoryText[8].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 9:
                         InventoryText[9].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     case 10:
                         InventoryText[10].text = inventoryInfo.InventoryDescrip;
-                        endSceneCount += 1;
+                        
                         break;
                     default:
                         break;
