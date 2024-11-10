@@ -6035,7 +6035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &105818408
 Transform:
   m_ObjectHideFlags: 0
@@ -6045,7 +6045,7 @@ Transform:
   m_GameObject: {fileID: 105818407}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0031346383, y: 0.70709985, z: 0.70709985, w: -0.0031346383}
-  m_LocalPosition: {x: -92.317, y: 8.26, z: -4.8407}
+  m_LocalPosition: {x: -107.07, y: 8.26, z: -4.8407}
   m_LocalScale: {x: 15.492815, y: 100, z: 47.290733}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15238,78 +15238,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &344356436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344356437}
-  - component: {fileID: 344356440}
-  - component: {fileID: 344356441}
-  m_Layer: 0
-  m_Name: Back_Door_Key_Found
-  m_TagString: Dialogue
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &344356437
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344356436}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -136.89, y: 3.44, z: 130.09}
-  m_LocalScale: {x: 0.054513253, y: 0.19725087, z: 0.22836454}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &344356440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344356436}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 18.428026, y: 6.377575, z: 32.609688}
-  m_Center: {x: 19.835985, y: -11.587379, z: -9.006058}
---- !u!114 &344356441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344356436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de319077d44b0e44188b9f501a09b615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueDiscription: Found Key
-    sentences:
-    - Yes I found the key
-  player: {fileID: 8011130825013019085}
-  playerCollider: {fileID: 8011130825013019089}
 --- !u!1001 &345235177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37271,6 +37199,79 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1349140216}
   m_SourcePrefab: {fileID: 100100000, guid: 322afbf5e4a68bd418291c5748124d8e, type: 3}
+--- !u!1 &875222741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875222744}
+  - component: {fileID: 875222743}
+  - component: {fileID: 875222742}
+  m_Layer: 0
+  m_Name: Staff room dialgoue
+  m_TagString: Hidden
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &875222742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875222741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de319077d44b0e44188b9f501a09b615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueDiscription: Basement_Dialogue
+    sentences:
+    - lets see if theres anything in the staffroom
+    - Hopefully I can find the basement key here
+  player: {fileID: 8011130825013019085}
+  playerCollider: {fileID: 8011130825013019089}
+--- !u!65 &875222743
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875222741}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.17498, y: 7.988324, z: 14.243607}
+  m_Center: {x: 20.343288, y: 0.0063700676, z: -7.58712}
+--- !u!4 &875222744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875222741}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -135.6, y: 3.8, z: 112.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &878095801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47093,12 +47094,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
       propertyPath: m_Name
-      value: Basement Key
+      value: Staff Room Key
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
       propertyPath: m_TagString
-      value: Key1
+      value: Key2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48728,7 +48729,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70.05
+      value: -62.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
@@ -48738,7 +48739,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.53
+      value: -78.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
@@ -48778,12 +48779,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
       propertyPath: m_Name
-      value: Back Door Key
+      value: Basement Key
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a07dfbf1b507bd04385f7f669b284d98,
         type: 3}
       propertyPath: m_TagString
-      value: Key2
+      value: Key1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88113,7 +88114,7 @@ MonoBehaviour:
   standingHeight: 2
   crouchSpeed: 1.5
   hiddenPosition: {fileID: 164368667}
-  clue1Position: {fileID: 344356437}
+  clue1Position: {fileID: 0}
   clue2Position: {fileID: 1034505445}
   clue3Position: {fileID: 1495486159}
   hiddenObject: {fileID: 7850571276652249222, guid: d6c5b3f10af76774188f8c29dd4a89be,
@@ -90821,7 +90822,6 @@ SceneRoots:
   - {fileID: 1963220533}
   - {fileID: 307682957}
   - {fileID: 1981563100}
-  - {fileID: 344356437}
   - {fileID: 887169025}
   - {fileID: 575074259}
   - {fileID: 136669206}
@@ -90834,6 +90834,7 @@ SceneRoots:
   - {fileID: 1495486159}
   - {fileID: 1034505445}
   - {fileID: 164368667}
+  - {fileID: 875222744}
   - {fileID: 521996597}
   - {fileID: 300426224}
   - {fileID: 341795624}
