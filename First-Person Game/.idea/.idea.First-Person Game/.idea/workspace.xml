@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca81c3dc-437d-42d3-a740-c38c9640ab8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/GreyBoxAsset/basement.blend" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GreyBoxAsset/basement.blend.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GreyBoxAsset/Cube (1).prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GreyBoxAsset/Cube (1).prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Class.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Class.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Stack_Of_Paper/stack 1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Stack_Of_Paper/stack 1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Stack_Of_Paper/stack.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Stack_Of_Paper/stack.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/pen.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/pen/pen.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/pen/pen.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/coffee shop document 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/coffee shop document 1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Scene_Cafe.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main_Scene_Cafe.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,30 +21,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2ki6Cs4VKBeQuCIbgX9TDksgTgs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging Bennett",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging Bennett&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\benet\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\benet\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\benet\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\benet\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\benet\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\benet\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Unity.exe" />
@@ -86,6 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723753929042</updated>
       <workItem from="1723753933065" duration="29000" />
+      <workItem from="1731242253147" duration="299000" />
     </task>
     <servers />
   </component>
