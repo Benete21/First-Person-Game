@@ -257,17 +257,17 @@ public class FirstPersonControls : MonoBehaviour
 
                 isHoldingHidden = true;
             }
-           /* else if (hit.collider.CompareTag("Gun"))
-            {
-                // Pick up the object
-                heldObject = hit.collider.gameObject;
-                heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
-                // Attach the object to the hold position
-                heldObject.transform.position = holdPosition.position;
-                heldObject.transform.rotation = holdPosition.rotation;
-                heldObject.transform.parent = holdPosition;
-               // holdingGun = true;
-            }*/
+            /* else if (hit.collider.CompareTag("Gun"))
+             {
+                 // Pick up the object
+                 heldObject = hit.collider.gameObject;
+                 heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+                 // Attach the object to the hold position
+                 heldObject.transform.position = holdPosition.position;
+                 heldObject.transform.rotation = holdPosition.rotation;
+                 heldObject.transform.parent = holdPosition;
+                // holdingGun = true;
+             }*/
             else if (hit.collider.CompareTag("Key1"))
             {
                 // Pick up the object
@@ -309,6 +309,19 @@ public class FirstPersonControls : MonoBehaviour
 
                 isHoldingHidden = true;
                 Key3 = true;
+            }
+            else if (hit.collider.CompareTag("Gun"))
+            {
+                // Pick up the object
+                heldObject = hit.collider.gameObject;
+                heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+
+                // Attach the object to the hold position
+                heldObject.transform.position = holdPosition.position;
+                heldObject.transform.rotation = holdPosition.rotation;
+                heldObject.transform.parent = holdPosition;
+
+                isHoldingHidden = true;
             }
         }
     }
