@@ -102,9 +102,11 @@ public class FirstPersonControls : MonoBehaviour
     public Animator animatorDoorEnt;
     public Animator animatorDoorEnt2;
     public Animator animatorStaffRoom;
+    public Animator animatorDialogue;
     public bool Key1 = false;
     public bool Key2 = false;
     public bool Key3 = false;
+    public bool MerrySpeak = false;
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -569,9 +571,9 @@ public class FirstPersonControls : MonoBehaviour
                 }
 
             }
-            /*else if (Key2 == true)
-            {*/
-                else if (hit.collider.CompareTag("Door2")) // Check if the object is a door
+            else if (MerrySpeak == true)
+            {
+                 if (hit.collider.CompareTag("Door2")) // Check if the object is a door
                 {
                     animatorDoor.SetBool("isDoorOpen", true);
                     animatorDoor2.SetBool("isDoorOpen2", true);
@@ -579,7 +581,7 @@ public class FirstPersonControls : MonoBehaviour
                     doorAudio.Play();
 
                 }
-            //}
+            }
             else if (Key3 == true)
             {
                 if (hit.collider.CompareTag("Door3")) // Check if the object is a door
@@ -602,7 +604,10 @@ public class FirstPersonControls : MonoBehaviour
             }
             else if (hit.collider.CompareTag("NPC")) // Check if the object is a NPC
             {
+                animatorDialogue.SetBool("Display", true);
+
                 FindObjectOfType<DialogueManagerStart>().FirstSceneStartDialogue(dialogueNPC);
+                MerrySpeak = true;
             }
 
         }

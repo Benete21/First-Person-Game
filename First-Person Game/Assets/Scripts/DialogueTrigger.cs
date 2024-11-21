@@ -19,7 +19,6 @@ public class DialogueTrigger : MonoBehaviour
         if (other = playerCollider)
         {
             TriggerDialogue();
-            Debug.Log("Hello");
             Destroy(gameObject);
         }
 
