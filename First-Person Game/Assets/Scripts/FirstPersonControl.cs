@@ -573,12 +573,13 @@ public class FirstPersonControls : MonoBehaviour
             }
             else if (MerrySpeak == true)
             {
-                 if (hit.collider.CompareTag("Door2")) // Check if the object is a door
+                if (hit.collider.CompareTag("Door2")) // Check if the object is a door
                 {
                     animatorDoor.SetBool("isDoorOpen", true);
                     animatorDoor2.SetBool("isDoorOpen2", true);
                     AudioSource doorAudio = hit.collider.GetComponent<AudioSource>();
                     doorAudio.Play();
+                    MerrySpeak = false;
 
                 }
             }
