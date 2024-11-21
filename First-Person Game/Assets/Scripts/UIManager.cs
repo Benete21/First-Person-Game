@@ -32,6 +32,12 @@ public class UIManager : MonoBehaviour
     {
         initialButton.SetActive(false);
         animatorbook.SetBool("Begin", true);
+        StartCoroutine(DisplayWait());
+
+    }
+    private IEnumerator DisplayWait()
+    {
+        yield return new WaitForSeconds(1.5f); // Wait for 3 seconds
         foreach (GameObject UIelement in UIElements)
         {
             UIelement.SetActive(true);
